@@ -1,0 +1,13 @@
+{
+    "pt-BR": {
+        "subject": "2º fator de autenticação",
+        "title": "Código de Verificação",
+        "paragraph0": "Seu código de verificação é:",
+        "paragraph1": "Ele é válido por dez minutos.",
+        "paragraph2": "<strong>Quando: {datetime}</strong>",
+        "paragraph3": "<strong>Onde: {location}</strong>",
+        "paragraph4": "<strong>Endereço IP: {ip}</strong>",
+        "emailInfo": "Esta é uma mensagem automática. Por favor, não responda.",
+        "question": "Não reconhece esta atividade? Nós ajudaremos você a proteger sua conta <a href=\"https://www.we-bronx.io\" target=\"_blank\" rel=\"noopener\">reportando e redefinindo sua senha</a>."
+    }
+}
