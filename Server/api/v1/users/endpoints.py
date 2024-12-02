@@ -1,11 +1,5 @@
 # api/v1/users/endpoints.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
 import json
 from typing_extensions import Annotated
 from pydantic import EmailStr
@@ -23,7 +17,7 @@ from firebase_admin import auth, exceptions, firestore, storage
 from controller.otp import generate_hotp, get_current_timestamp
 from controller.token import validate_token, get_token_iat, create_access_token, get_token_exp
 from controller.utils import get_user_ip
-from model.constants import ENV, USER_MODEL_EMAIL_VERIFIED_DEFAULT, TEMP_TOKEN_ALGORITHM, GCP_USERS_BUCKET
+from model.constants import ENV, USER_MODEL_EMAIL_VERIFIED_DEFAULT, TEMP_TOKEN_ALGORITHM
 from model.models import UserCredentials, UserModel, UserSettingsModel, UserCreatePostForm, Roles, Services
 
 
@@ -126,100 +120,6 @@ def patch_users_me_v1(token: Annotated[str, Depends(oauth2_scheme)], doc_metadat
             users_oauth.update(doc_oauth)
 
         return users_metadata.get().to_dict()
-    else:
-        response.status_code = stts_code
-        return HTTPException(
-            status_code=stts_code,
-            detail=detail
-        )
-
-
-@router.get('/me/avatar')
-async def get_user_avatar_v1(token: Annotated[str, Depends(oauth2_scheme)], response: Response):
-    '''
-    Retrieves an authenticated URL of the user's avatar from Firebase Storage, valid for a limited time.
-
-    #### Args:
-    - **token (str)**: The JWT token for user authentication.
-    '''
-    stts_code, detail, data = validate_token(token, check_mfa_auth=(ENV == 'production'))
-
-    if stts_code == status.HTTP_200_OK:
-        db = firestore.client()
-        decoded_token = data['decoded_token']
-        user = auth.get_user_by_email(decoded_token['sub'])
-        user_metadata = db.collection('users').document(user.uid).get().to_dict()
-
-        if 'avatar_extension' in user_metadata:
-            extension = user_metadata['avatar_extension']
-
-            bucket = storage.bucket(name=GCP_USERS_BUCKET)
-            blob = bucket.blob(f'avatars/{user.uid}.{extension}')
-
-            signed_url = blob.generate_signed_url(expiration=timedelta(hours=1))
-
-            return {
-                'message': 'Authenticated avatar URL retrieved successfully',
-                'avatar_url': signed_url
-            }
-        else:
-            status_code = status.HTTP_204_NO_CONTENT
-            response.status_code = status_code
-            return {
-                'message': 'Avatar not found',
-                'type': 'NotFound'
-            }
-    else:
-        response.status_code = stts_code
-        return HTTPException(
-            status_code=stts_code,
-            detail=detail
-        )
-
-
-@router.patch('/me/avatar')
-async def patch_user_avatar_v1(token: Annotated[str, Depends(oauth2_scheme)], response: Response, file: UploadFile = File(...)):
-    '''
-    Uploads a user avatar image and stores its URL in Firebase Firestore.
-
-    Allowed formats: png, jpeg, jpg
-
-    #### Args:
-    - **file (UploadFile)**: The image file to be uploaded.
-    '''
-    allowed_content_types = ['image/png', 'image/jpeg', 'image/jpg']
-
-    if file.content_type not in allowed_content_types:
-        response.status_code = status.HTTP_400_BAD_REQUEST
-        return HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail={
-                'message': 'Invalid file format. Only png, jpeg, and jpg are allowed.',
-                'type': 'BadRequest'
-            }
-        )
-    stts_code, detail, data = validate_token(token, check_mfa_auth=(ENV == 'production'))
-
-    if stts_code == status.HTTP_200_OK:
-        db = firestore.client()
-        decoded_token = data['decoded_token']
-        user = auth.get_user_by_email(decoded_token['sub'])
-
-        bucket = storage.bucket(name=GCP_USERS_BUCKET)
-        extension = file.content_type.split('/')[-1]
-        blob = bucket.blob(f'avatars/{user.uid}.{extension}')
-        blob.upload_from_file(file.file, content_type=file.content_type)
-
-        blob.make_public()
-        avatar_url = blob.public_url
-
-        users_metadata = db.collection('users').document(user.uid)
-        users_metadata.update({'avatar_extension': extension, 'updated_at': firestore.SERVER_TIMESTAMP})
-
-        return {
-            'message': 'Avatar updated successfully',
-            'avatar_url': avatar_url
-        }
     else:
         response.status_code = stts_code
         return HTTPException(

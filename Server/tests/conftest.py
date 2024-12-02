@@ -1,22 +1,14 @@
 # tests/conftest.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
 import os
 import json
 import pytest
 import pyotp
 
 from tests.utils import delete_test_user
-from model.constants import PROJECT_ID
-from controller.secret_manager import access_secret_version
 
-BASE_TEST_USER = json.loads(access_secret_version(PROJECT_ID, 'base-test-user'))
-TEMP_TEST_USER = json.loads(access_secret_version(PROJECT_ID, 'temp-test-user'))
+BASE_TEST_USER = json.loads(os.getenv('BASE-TEST-USER'))
+TEMP_TEST_USER = json.loads(os.getenv('TEMP-TEST-USER'))
 
 class ValueStorage:
 

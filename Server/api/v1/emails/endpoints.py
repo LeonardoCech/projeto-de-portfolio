@@ -1,11 +1,5 @@
 # api/v1/emails/endpoints.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
 from typing_extensions import Annotated
 from pydantic import EmailStr
 
@@ -22,7 +16,6 @@ from google.cloud.firestore_v1.base_query import FieldFilter
 from controller.otp import get_hotp_code, generate_hotp, generate_totp, get_current_timestamp
 from controller.mailgun import send_email
 from controller.utils import build_oauth_uri, get_user_ip
-from model.constants import SENDGRID_API_KEY
 
 
 router = APIRouter()

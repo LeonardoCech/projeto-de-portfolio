@@ -1,14 +1,11 @@
 from requests import get
 
-from controller.secret_manager import access_secret_version
-from model.constants import PROJECT_ID
+from model.constants import IPINFO_TOKEN
 
 def get_ipinfo(ip):
     '''
     Get IP information from ip-api.com
     '''
-    
-    IPINFO_TOKEN = access_secret_version(PROJECT_ID, 'ipinfo-token')
 
     try:
         response = get(f'https://ipinfo.io/{ip}?token={IPINFO_TOKEN}', timeout=5)

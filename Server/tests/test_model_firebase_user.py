@@ -1,11 +1,5 @@
 # tests/test_model_firebase_user.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
 import unittest, sys, os, pytest
 
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

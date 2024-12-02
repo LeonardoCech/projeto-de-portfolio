@@ -1,9 +1,6 @@
-import json
 import os
 
 from dotenv import load_dotenv
-
-from controller.secret_manager import access_secret_version
 
 load_dotenv()
 
@@ -19,7 +16,12 @@ ALLOWED_ORIGINS = [
 
 IDENTITY_TOOLKIT_URL = 'https://identitytoolkit.googleapis.com/v1'
 
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+MAILGUN_API_KEY = os.getenv('MAIL-GUN-API-KEY')
+
+MAILGUN_DOMAIN = 'sandboxa5da889df91e48b0958eb3f7b2453050.mailgun.org'
+MAILGUN_API_URL = f'https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages'
+MAILGUN_FROM = 'Smart Trade Staging <mailgun@staging.we-bronx.io>'
+
 
 # Debug option to show logs when run Unit Tests
 # ALWAYS MAKE SURE THIS IS SET TO FALSE BEFORE ANY COMMIT
@@ -50,3 +52,7 @@ USER_MODEL_EMAIL_VERIFIED_DEFAULT = True
 
 # Firebase User Email
 USER_MODEL_EMAIL_REGEX = '^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$'
+
+IPINFO_TOKEN = os.getenv('IPINFO-TOKEN')
+
+TOKEN_SECRET_KEY = os.getenv('TOKEN-SECRET-KEY')

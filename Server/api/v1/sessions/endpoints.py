@@ -1,11 +1,5 @@
 # api/v1/sessions/endpoints.py
 
-'''
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-'''
-
 import json
 from typing_extensions import Annotated
 from pydantic import EmailStr

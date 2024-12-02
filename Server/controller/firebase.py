@@ -1,20 +1,15 @@
 # controller/firebase.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
+import json
 import requests
 
 from firebase_admin import auth
 
-from model.constants import PROJECT_ID, IDENTITY_TOOLKIT_URL
-from controller.secret_manager import access_secret_version
+from model.constants import IDENTITY_TOOLKIT_URL
 
 
-FIREBASE_API_KEY =  access_secret_version(PROJECT_ID, 'firebase-web-api-key')
+FIREBASE_API_KEY = json.loads(
+        open('credentials/minhas-financas-tcc.json').read())
 
 
 def check_user_exists(email):

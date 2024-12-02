@@ -64,13 +64,14 @@ Se ocorrer um erro dizendo que o parâmetro `"python"` não foi reconhecido, ten
 
 #### Instalar dependências
 
-Após instalar o Python UV, ainda no terminal do PowerShell do VS Code, execute o comando:
+Após instalar o Python UV, ainda no terminal do PowerShell do VS Code, execute os comandos:
 
-    uv activate
+    uv venv
+    .venv\Scripts\activate
 
 O comando ativará um Ambiente Virtual (venv). Após isso, execute o comando:
 
-    uv install
+    uv sync
 
 O comando instalará todas as bibliotecas Python necessárias para rodar o projeto, assim como suas dependências.
 

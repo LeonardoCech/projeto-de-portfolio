@@ -1,18 +1,7 @@
 # controller/token.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
-import os
-import hmac
-import hashlib
-import base64
 import json
 import pytz
-from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 
@@ -20,11 +9,7 @@ from jose import JWTError, jwt
 from fastapi import status
 
 # Own packages
-from model.constants import *
-from controller.secret_manager import access_secret_version
-
-
-TOKEN_SECRET_KEY = access_secret_version(PROJECT_ID, 'token-secret-key')
+from model.constants import TOKEN_SECRET_KEY, TOKEN_EXPIRATION_TIME, TOKEN_ALGORITHM, TEMP_TOKEN_ALGORITHM
 
 
 def get_token_iat():

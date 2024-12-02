@@ -1,26 +1,25 @@
-# controller/twilio.py
-# [DEPRECATED] Using Mailgun instead
+# controller/mailgun.py
+# Reference: https://www.mailgun.com/blog/it-and-engineering/send-email-using-python/
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
-import json
-import pytz
-from datetime import datetime as dt
-
+from requests import post
 from controller.ipinfo import get_ipinfo
+from model.constants import MAILGUN_API_URL, MAILGUN_API_KEY, MAILGUN_FROM
 
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+# controller/mailgun.py
+# Reference: https://www.mailgun.com/blog/it-and-engineering/send-email-using-python/
+
+from requests import post
+from controller.ipinfo import get_ipinfo
+from model.constants import MAILGUN_API_URL, MAILGUN_API_KEY, MAILGUN_FROM
+from datetime import datetime as dt
+import pytz
+import json
 
 
-def send_email(api_key, user_ip, user_email, hotp_code, user_fullname = '', from_email='noreply@we-bronx.io', html_id='mfa-code', lang = 'en-US'):
-    # using SendGrid's Python Library
-    # https://github.com/sendgrid/sendgrid-python
+def send_email(user_ip, user_email, hotp_code, user_fullname='', html_id='mfa-code', lang='en-US'):
+    # IP info logic
 
+    
     ipinfo_response = get_ipinfo(user_ip)
 
     location = '-'
@@ -30,15 +29,16 @@ def send_email(api_key, user_ip, user_email, hotp_code, user_fullname = '', from
         ipinfo_dict = ipinfo_response['data']
         if 'city' in ipinfo_dict and 'region' in ipinfo_dict and 'country' in ipinfo_dict:
             location = f"{ipinfo_dict['city']}, {ipinfo_dict['region']}, {ipinfo_dict['country']}"
-        
+
         if 'timezone' in ipinfo_dict:
             timezone = ipinfo_dict['timezone']
 
     datetime = dt.now(pytz.utc) \
         .astimezone(pytz.timezone(timezone)) \
         .strftime("%Y-%m-%d %H:%M:%S %Z")
-    
-    html_content = open(f'src/emails/templates/{html_id}.html', encoding="utf8").read()    
+
+    # Email content and translation logic
+    html_content = open(f'src/emails/templates/{html_id}.html', encoding="utf8").read()
     translations = json.loads(open(f'src/emails/translations/{html_id}.json', encoding="utf8").read())
 
     if lang in translations:
@@ -64,13 +64,6 @@ def send_email(api_key, user_ip, user_email, hotp_code, user_fullname = '', from
             .replace('{question}', t['question']) \
             .replace('{token}', hotp_code)
 
-        message = Mail(
-            from_email=from_email,
-            to_emails=user_email,
-            subject=t['subject'],
-            html_content=html_content
-        )
-        
     elif html_id == 'account-accessed':
 
         t['paragraph0'] = t['paragraph0'] \
@@ -90,17 +83,36 @@ def send_email(api_key, user_ip, user_email, hotp_code, user_fullname = '', from
             .replace('{emailInfo}', t['emailInfo']) \
             .replace('{question}', t['question'])
 
-        message = Mail(
-            from_email=from_email,
-            to_emails=user_email,
-            subject=t['subject'],
-            html_content=html_content
-        )
+    # Sending email using Mailgun API
+    return send_single_email(user_email, t['subject'], content=html_content)
+
+
+def send_single_email(to_address: str, subject: str, content: str = '', content_type: str = 'html'):
+
+    request_data = {
+        'from': MAILGUN_FROM,
+        'to': to_address,
+        'subject': subject
+    }
+
+    if content_type == 'text':
+        request_data['text'] = content
+    else:
+        request_data['html'] = content
 
     try:
-        sg = SendGridAPIClient(api_key)
-        sg.send(message)
-        return True
+        response = post(
+            MAILGUN_API_URL,
+            auth=('api', MAILGUN_API_KEY),
+            data=request_data
+        )
+        
+        if response.status_code == 200:
+            return True
+        else:
+            print(f'[Mailgun] Could not send the email, reason: {response.text}')
+            return False
+
     except Exception as e:
-        print(e.body)
+        print(f'[Mailgun] Could not send the email, reason: {e}')
         return False

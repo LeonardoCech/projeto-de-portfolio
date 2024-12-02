@@ -1,47 +1,37 @@
 # main.py
 
-'''
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-'''
-
-# System Packages
+# Pacotes externos
 import json
 import uvicorn
 
-# FastAPI Packages
+# FastAPI
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.utils import get_openapi
 
-# Firebase Packages
+# Firebase
 import firebase_admin
 from firebase_admin import credentials
 
-# Own packages
+# Pacotes internos
 from api.v1.emails.endpoints import router as api_v1_emails_router
 from api.v1.qrcodes.endpoints import router as api_v1_qrcodes_router
 from api.v1.server.endpoints import router as api_v1_server_router
 from api.v1.sessions.endpoints import router as api_v1_sessions_router
 from api.v1.users.endpoints import router as api_v1_users_router
 
-from model.resources import Resources
-
-from controller.secret_manager import access_secret_version
 from controller.utils import get_pyproject_version
-from model.constants import ALLOWED_ORIGINS, PROJECT_ID, PORT
+from model.constants import ALLOWED_ORIGINS, PORT
 
 
 if __name__ == '__main__':
 
-    GCLOUD_SERVICE_KEY = json.loads(access_secret_version(PROJECT_ID, 'firebase-service-account'))
+    GCLOUD_SERVICE_KEY = json.loads(
+        open('credentials/minhas-financas-tcc.json').read())
     certificate_json = credentials.Certificate(GCLOUD_SERVICE_KEY)
 
     # Obter a chave do serviço do Google Cloud da variável de amb
     default_app = firebase_admin.initialize_app(certificate_json)
-
-    resources = Resources()
 
     app = FastAPI(
         openapi_url='/openapi-schema.json',
@@ -51,12 +41,16 @@ if __name__ == '__main__':
         }
     )
 
-    app.include_router(api_v1_emails_router, prefix='/api/v1/emails', tags=['Emails'])    
-    app.include_router(api_v1_qrcodes_router, prefix='/api/v1/qr-codes', tags=['QR Codes'])
-    app.include_router(api_v1_server_router, prefix='/api/v1/server', tags=['Server'])
-    app.include_router(api_v1_sessions_router, prefix='/api/v1/sessions', tags=['Sessions'])
-    app.include_router(api_v1_users_router, prefix='/api/v1/users', tags=['Users'])
-    app.include_router(ws_v1_exchanges_router, prefix='/ws/v1/exchanges')
+    app.include_router(api_v1_emails_router,
+                       prefix='/api/v1/emails', tags=['Emails'])
+    app.include_router(api_v1_qrcodes_router,
+                       prefix='/api/v1/qr-codes', tags=['QR Codes'])
+    app.include_router(api_v1_server_router,
+                       prefix='/api/v1/server', tags=['Server'])
+    app.include_router(api_v1_sessions_router,
+                       prefix='/api/v1/sessions', tags=['Sessions'])
+    app.include_router(api_v1_users_router,
+                       prefix='/api/v1/users', tags=['Users'])
 
     app.add_middleware(
         CORSMiddleware,

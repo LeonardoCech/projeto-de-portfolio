@@ -1,11 +1,5 @@
 # tests/utils.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
 # Firebase packages
 from firebase_admin import auth, firestore
 

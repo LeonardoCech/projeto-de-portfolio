@@ -1,11 +1,5 @@
 # api/v1/qr-codes/endpoints.py
 
-"""
-Copyright (c) 2024 BNX Technologies LTDA
-This script is protected by copyright laws and cannot be reproduced, distributed,
-or used without written permission of the copyright owner.
-"""
-
 import qrcode
 from PIL import Image
 from io import BytesIO
