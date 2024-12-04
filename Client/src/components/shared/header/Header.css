@@ -1,0 +1,35 @@
+.header {
+    align-items: center;
+    background-image: var(--gradient-0);
+    border-radius: var(--border-radius);
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    min-height: .1rem;
+    padding: .5rem 2rem;
+    width: var(--fill-all);
+
+    & .header-section {
+        width: 30%;
+    }
+
+    & p, .ant-select-selection-item, .ant-select-arrow {
+        color: var(--white) !important;
+    }
+
+    & .input-checkbox-container input:checked~.checkmark {
+        background-color: white;
+    }
+
+    & .input-checkbox-container .checkmark:after {
+        border-color: var(--onyx);
+    }
+}
+
+body.dark .header {
+    background-image: var(--gradient-1);
+}
+
+.header .icon-svg {
+    color: var(--white);
+}

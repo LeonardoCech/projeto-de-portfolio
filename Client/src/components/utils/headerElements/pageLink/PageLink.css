@@ -1,0 +1,36 @@
+
+.page-link-a {
+    text-decoration: none !important;
+}
+
+.page-link-button {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: .5rem 0;
+    width: var(--fill-all);
+    transition: var(--transition-secondary);
+}
+
+.page-link-button.selected,
+.page-link-button:hover {
+    background: #eeeeee;
+}
+
+body.dark .page-link-button.selected,
+body.dark .page-link-button:hover {
+    background: var(--jet);
+}
+
+.page-link-button {
+    align-items: center;
+    display: flex;
+    user-select: none;
+}
+
+.page-link-button .icon-svg {
+    width: 2rem;
+}
+
+:is(.page-link-button:hover, .page-link-button.selected) .icon-svg {
+    color: var(--color-secondary) !important;
+}

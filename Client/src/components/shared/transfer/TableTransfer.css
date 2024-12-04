@@ -1,0 +1,87 @@
+.ant-transfer-list-header {
+    display: none !important;
+}
+
+.ant-transfer-list {
+    border: none !important;
+}
+
+.ant-input {
+    height: 2rem !important;
+}
+
+.ant-pagination-item-link {
+    margin: 0 !important;
+}
+
+thead .ant-table-cell {
+    font-size: 13px !important;
+    font-weight: bold !important;
+    color: var(--color-primary) !important;
+    background-color: #FFF !important;
+}
+
+/* Custom */
+
+/* TableTransfer.css */
+.table-transfer-card {
+    height: 38vh;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.table-transfer-card .ant-table {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.table-transfer-card .ant-table-body {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.table-transfer-card .ant-table-thead > tr > th,
+.table-transfer-card .ant-table-tbody > tr > td {
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.table-transfer-card .ant-table-tbody > tr > td {
+    display: flex;
+    align-items: center;
+}
+
+.table-transfer-card .ant-table-tbody > tr > td img {
+    margin-right: 8px;
+    height: 24px;
+    width: 24px;
+}
+
+/* Controlando a largura das colunas para que se encaixem melhor */
+.table-transfer-card .ant-table .ant-table-cell {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.table-transfer-card .ant-transfer-list-body {
+    padding: 0;
+}
+
+/* Controlando a exibição dos elementos */
+.table-transfer-card .ant-table-row {
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
+.table-transfer-card .ant-checkbox-wrapper {
+    margin-right: 16px;
+}
+
+.table-transfer-card .ant-table-pagination {
+    display: none;
+}

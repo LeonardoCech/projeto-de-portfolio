@@ -1,0 +1,29 @@
+footer {
+    
+    height: 2.5rem;
+    width: var(--fill-all);
+
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+
+    /*Actions*/
+    user-select: none;
+
+    
+    color: var(--default-color);
+    background-color: var(--footer-bg-color);
+    font-size: x-small;
+}
+
+body.dark footer {
+    color: var(--default-color-dark);
+    background-color: var(--footer-bg-color-dark);
+}
+
+.mobile footer {
+    position: relative;
+    padding-bottom: 4rem;
+}

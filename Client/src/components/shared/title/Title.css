@@ -1,0 +1,38 @@
+.title {
+    color: var(--color-primary);
+    font-weight: bold;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+body.dark .title {
+    color: var(--color-primary-dark) !important;
+}
+
+.title.primary {
+    color: var(--white);
+    font-size: 1.5rem !important;
+}
+
+.title.secondary {
+    font-size: 1.25rem !important;
+}
+
+.title.tertiary {
+    font-size: 1rem !important;
+}
+
+.title.quaternary {
+    font-size: .75rem !important;
+}
+
+@media screen and (max-width: 1600px) {
+
+    .title.primary {
+        font-size: 1.25rem !important;
+    }
+
+    .title.secondary {
+        font-size: 1rem !important;
+    }
+}

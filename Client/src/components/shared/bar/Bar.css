@@ -1,0 +1,23 @@
+
+.bar {
+    width: var(--fill-all) !important;
+    height: .5rem;
+    background: var(--magnolia);
+    border-radius: var(--border-radius);
+}
+
+body.dark .bar {
+    background: var(--resin-black);
+}
+
+.bar .progress {
+    width: 0%;
+    height: .5rem;
+    border-radius: var(--border-radius);
+    transition: .5s ease-in-out;
+    background-image: var(--gradient-0);
+}
+
+body.dark .bar .progress {
+    background-image: var(--gradient-1);
+}

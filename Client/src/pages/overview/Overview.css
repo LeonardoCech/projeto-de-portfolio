@@ -1,0 +1,23 @@
+#overview {
+    & .balance-total {
+        font-size: larger;
+    }
+
+    & .balance-subtotal {
+        font-size: 1rem;
+    }
+
+    & .account-card, .investiment-card {
+        border: .1rem solid var(--resin-black);
+        border-radius: var(--border-radius);
+        padding: var(--padding-primary);
+    }
+
+    & #financial-insights {
+        border: .1rem solid var(--mint);
+        box-shadow: 0 2px 4px 0 var(--mint), 0 3px 10px 0 var(--mint)
+    }
+}
+
+body.dark #overview {
+}

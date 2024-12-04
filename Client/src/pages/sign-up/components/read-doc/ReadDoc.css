@@ -1,0 +1,24 @@
+
+.read-doc {
+
+    background-color: var(--input-bg-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    height: 1.25rem;
+    justify-content: space-between;
+    padding: var(--padding-primary) var(--padding-secondary);
+    line-height: 1.25rem;
+    text-align: center;
+
+    & div {
+        display: flex;
+    }
+
+    & .icon-svg.read {
+        color: var(--jungle-green) !important;
+    }
+}
+
+body.dark .read-doc {
+    background-color: var(--input-dark-bg-color);
+}

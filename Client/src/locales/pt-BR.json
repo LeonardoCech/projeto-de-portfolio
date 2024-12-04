@@ -1,0 +1,980 @@
+{
+    "account-security": "Segurança da Conta",
+    "accept": "Aceitar",
+    "action": {
+        "p": "Ações",
+        "s": "Ação"
+    },
+    "add": "Adicionar",
+    "agree": "Concordar",
+    "all-available": "Todos disponíveis",
+    "already-sign-uped": "Já está registrado?",
+    "api_codes": {
+        "default": {
+            "200_0": "OK",
+            "201_0": "Criado",
+            "202_0": "Aceito",
+            "204_0": "Sem Conteúdo",
+            "400_0": "Requisição Inválida",
+            "401_0": "Não Autorizado",
+            "401_page": "Oops! Suas credenciais expiraram...",
+            "403_0": "Proibido",
+            "404_0": "Não Encontrado",
+            "404_page": "Oops! A página não foi encontrada...",
+            "405_0": "Método Não Permitido",
+            "406_0": "Não Aceitável",
+            "409_0": "Conflito",
+            "422_0": "Entidade Não Processável",
+            "500_0": "Erro Interno do Servidor"
+        },
+        "integrity": {
+            "0_0": "Não foi possível conectar aos nossos servidores",
+            "401_0": "Código inválido",
+            "500_0": "Erro no servidor"
+        },
+        "sign-in": {
+            "0_0": "Não foi possível conectar aos nossos servidores",
+            "200_0": "Login bem-sucedido",
+            "400_0": "Nome de usuário ou senha incorretos",
+            "400_1": "Verificação de dois fatores configurada, código necessário",
+            "401_0": "Nome de usuário ou senha incorretos",
+            "401_1": "Código do 2º fator inválido",
+            "404_0": "API não encontrada",
+            "404_1": "Usuário não encontrado",
+            "422_0": "Preencha todos os campos obrigatórios",
+            "500_0": "Erro no servidor"
+        },
+        "sign-up": {
+            "0_0": "Não foi possível conectar aos nossos servidores",
+            "201_0": "Registro bem-sucedido, redirecionando para a página de login...",
+            "409_0": "Usuário com e-mail já existe",
+            "422_0": "Preencha todos os campos obrigatórios",
+            "500_0": "Erro no servidor"
+        },
+        "reset-password": {
+            "0_0": "Não foi possível conectar aos nossos servidores",
+            "200_0": "Senha redefinida, você deve fazer login",
+            "422_0": "Preencha todos os campos obrigatórios",
+            "500_0": "Erro no servidor"
+        },
+        "settings": {
+            "0_0": "Não foi possível conectar aos nossos servidores",
+            "200_0": "Configurações alteradas com sucesso",
+            "422_0": "Preencha todos os campos obrigatórios",
+            "500_0": "Erro no servidor"
+        }
+    },
+    "api-key": "Chave API",
+    "ago": {
+        "hour": {
+            "s": " há {} hora",
+            "p": " há {} horas"
+        },
+        "minute": {
+            "s": " há {} minuto",
+            "p": " há {} minutos"
+        },
+        "second": {
+            "s": " há {} segundo",
+            "p": " há {} segundos"
+        }
+    },
+    "amount": {
+        "p": "Quantidades",
+        "s": "Quantidade"
+    },
+    "attention": "Atenção",
+    "back": "Voltar",
+    "balance": {
+        "p": "Saldos",
+        "s": "Saldo",
+        "opening": {
+            "p": "Aberturas",
+            "s": "Abertura"
+        },
+        "final": {
+            "p": "Finais",
+            "s": "Final"
+        }
+    },
+    "buy": {
+        "p": "Compras",
+        "s": "Compra",
+        "v": "Comprar"
+    },
+    "cancel": "Cancelar",
+    "click-here": "Clique aqui",
+    "cookies": {
+        "messages": {
+            "title": "Política de Cookies",
+            "content": "Usamos cookies para melhorar sua experiência usando o Minhas Finanças."
+        },
+        "learn-more": "Saiba mais",
+        "i-agree": "Concordo"
+    },
+    "connected-exchanges": "Exchanges Conectadas",
+    "cryptocurrency": {
+        "available": "Criptomoedas Disponíveis",
+        "in-wallet": "Criptomoedas na Carteira",
+        "monitored": "Criptomoedas Monitoradas",
+        "p": "Criptomoedas",
+        "s": "Criptomoeda"
+    },
+    "date": {
+        "p": "Datas",
+        "s": "Data"
+    },
+    "day": {
+        "a": "D",
+        "p": "Dias",
+        "s": "Dia"
+    },
+    "disabled": "Desativado",
+    "disagree": "Discordar",
+    "discard": "Descartar",
+    "do-captcha": "Verificação de Segurança",
+    "edit": {
+        "p": "Edições",
+        "s": "Edição",
+        "v": "Editar"
+    },
+    "enable-mfa": {
+        "app": "2º Fator de Autenticação via Smartphone",
+        "email": "2º Fator de Autenticação via E-mail"
+    },
+    "enter-api-key": "Digite a Chave API",
+    "enter-secret": "Digite o Segredo",
+    "enter-password": "Digite a senha",
+    "estimated": {
+        "date": "Data estimada"
+    },
+    "event": {
+        "s": "Evento",
+        "p": "Eventos"
+    },
+    "exchange-selector": "Seletor de Exchange",
+    "form-fields": {
+        "p": "Campos do Formulário",
+        "s": "Campo do Formulário",
+        "r": "Todos os campos são obrigatórios"
+    },
+    "fullname": "Nome Completo",
+    "go-back-to": {
+        "sign-in": "Voltar para o login"
+    },
+    "go-to": {
+        "sign-in": "Ir para o login"
+    },
+    "group": {
+        "p": "Grupos",
+        "s": "Grupo"
+    },
+    "halving-countdown": "Contagem Regressiva para Halving do Bitcoin",
+    "hour": {
+        "a": "H",
+        "p": "Horas",
+        "s": "Hora"
+    },
+    "initial": {
+        "p": "Iniciais",
+        "s": "Inicial"
+    },
+    "in-wallet": {
+        "p": "Nas Carteiras",
+        "s": "Na Carteira"
+    },
+    "just-now": "Agora mesmo",
+    "language": {
+        "s": "Idioma",
+        "p": "Idiomas"
+    },
+    "last": {
+        "day": {
+            "s": "Último {} dia",
+            "p": "Últimos {} dias"
+        },
+        "hour": {
+            "s": "Última {} hora",
+            "p": "Últimas {} horas"
+        },
+        "minute": {
+            "s": "Último {} minuto",
+            "p": "Últimos {} minutos"
+        },
+        "month": {
+            "s": "Último {} mês",
+            "p": "Últimos {} meses"
+        },
+        "week": {
+            "s": "Última {} semana",
+            "p": "Últimas {} semanas"
+        },
+        "year": {
+            "s": "Último {} ano",
+            "p": "Últimos {} anos"
+        }
+    },
+    "last-event": {
+        "s": "Último evento",
+        "p": "Últimos sinais"
+    },
+    "last-news": "Últimas notícias",
+    "last-op": {
+        "p": "Últimas operações",
+        "s": "Última operação"
+    },
+    "last-signals": "Últimos sinais",
+    "loading": "Carregando...",
+    "are-you-sure": "Tem certeza? Suas alterações não serão salvas.",
+    "are-you-ure-to-sing-out": "Tem certeza que deseja sair?",
+    "ask-redirect-without-saving": "Ao confirmar, todas as suas alterações serão descartadas e você será redirecionado.",
+    "captcha-required": "A verificação de segurança é obrigatória",
+    "change-email-and-resend": "Alterar e-mail e reenviar código",
+    "changes-to-save": "Salvar as alterações feitas?",
+    "click-if-not-works": "Clique aqui se não funcionar",
+    "email-not-sent": "O e-mail não pôde ser enviado. Por favor, aguarde um momento e tente novamente.",
+    "go-back": "Você será redirecionado para a última página acessada em alguns segundos.",
+    "go-to-wallet": "Gerenciar portfólio",
+    "insert-email-mfa": "Insira o código de verificação enviado para ",
+    "insert-app-mfa": "Insira o código de verificação presente no seu aplicativo de autenticação:",
+    "invalid-coins-number": "Número inválido de criptomoedas monitoradas.",
+    "know-more-link": "Clique aqui para saber mais",
+    "sign-in-redirect": "Você será redirecionado para a página de login em alguns segundos, ou se preferir, clique no link abaixo:",
+    "mfa-app-hint": "Também é possível configurar um código de segurança para autenticação de 2º fator via Smartphone.",
+    "mfa-email-hint": "Digite seu e-mail para prosseguir com a autenticação de 2º fator.",
+    "need-help": "Precisa de ajuda? Clique aqui!",
+    "redirect-overview": "Redirecionando para a página de visão geral...",
+    "resend-email-mfa": "Reenviar código",
+    "save-modifications": "Salvar as alterações feitas?",
+    "send-email-mfa": "Enviar código por e-mail",
+    "qr-code": "Você precisa configurar uma autenticação multifator no seu smartphone. Para isso, escaneie o Código QR usando um aplicativo autenticador. Recomendamos o Google Authenticator ou o Microsoft Authenticator.",
+    "balances-info": "É uma combinação dos saldos de criptomoedas em cada conta de exchange que você conectou ao Minhas Finanças. Moédas fiduciárias não são contabilizadas.",
+    "exchange-selector-info": "Os preços exibidos são obtidos da Exchange selecionada.",
+    "confirm-redirect-to-news": "Você será redirecionado para a página de Notícias. Deseja continuar?",
+    "read-full-article": "Clique aqui para ler o artigo completo",
+    "no-exchanges-connected": "Nenhuma exchange conectada",
+    "insert-code": "Por favor, insira um código",
+    "insert-digits": "Por favor, insira todos os dígitos",
+    "invalid-code": "Código inválido, por favor tente novamente",
+    "confirm-delete-connection": "Tem certeza de que deseja deletar a conexão {}?",
+    "seconds-to-try-again": "Aguarde {} segundo(s) para tentar novamente",
+    "fail-add-connection": "Ocorreu um erro ao tentar adicionar a Conexão de Exchange",
+    "fail-get-connection": "Ocorreu um erro ao tentar obter as Conexões de Exchanges",
+    "fail-delete-connection": "Ocorreu um erro ao tentar deletar a Conexão de Exchange",
+    "deleted-connection": "Conexão {} deletada com sucesso",
+    "added-connection": "Conexão {} adicionada com sucesso",
+    "wait-to-send-email-again": "Aguarde {} minuto(s) para tentar enviar novamente",
+    "sending-email": "Enviando e-mail...",
+    "email-sent": "E-mail enviado",
+    "insert-password": "Insira uma senha para proteger sua conta:",
+    "confirm-reset-sign-up": "Você perderá todos os dados no formulário de inscrição atual. Deseja continuar?",
+    "enter-name-and-email": "Digite seu nome completo, e-mail e clique no botão abaixo para receber um código seguro.",
+    "valid-email-mfa": "Código MFA de e-mail válido",
+    "valid-smartphone-mfa": "Código MFA de Smartphone válido",
+    "validate-email-code": "Insira o código recebido abaixo para validar seu e-mail:",
+    "validate-auth-smartphone-code": "Por favor, acesse seu aplicativo autenticador, encontre o código exibido como \"Minhas Finanças Platform\" e \"{username}\", e insira abaixo para validar:",
+    "validate-smartphone-code": "Insira o código recebido abaixo para validar seu smartphone:",
+    "insert-imessages-tel": "Insira um número de telefone usado no seu <b>iMessages</b>:",
+    "insert-telegram-tel": "Insira um número de telefone usado no seu <b>Telegram</b>:",
+    "insert-whatsapp-tel": "Insira um número de telefone usado no seu <b>WhatsApp</b>:",
+    "open-and-read-docs": "Você deve abrir e ler cada documento para concordar:",
+    "done-sign-up": "🚀 Tudo pronto! Clique abaixo para confirmar:",
+    "change-email": "Alterar e-mail",
+    "mfa-code": "Código do 2º Fator",
+    "minute": {
+        "a": "Min",
+        "p": "Minutos",
+        "s": "Minuto"
+    },
+    "month": {
+        "a": "M",
+        "p": "Meses",
+        "s": "Mês"
+    },
+    "more-details": "Mais detalhes",
+    "my-asset": {
+        "p": "Meus Ativos",
+        "s": "Meu Ativo"
+    },
+    "new-exchange-connection": "Nova conexão de Exchange",
+    "new-here": "Novo aqui?",
+    "no": "Não",
+    "no-related-topics": "Nenhum tópico relacionado para mostrar",
+    "no-results": "Nenhum resultado",
+    "notification": {
+        "p": "Notificações",
+        "s": "Notificação"
+    },
+    "operation": "Operação",
+    "overview": "Visão Geral",
+    "password": {
+        "change": "Alterar Senha",
+        "current": "Senha Atual",
+        "forgot": "Esqueceu sua senha?",
+        "hide": "Ocultar senha",
+        "mismatch": "As senhas não correspondem",
+        "hints": [
+            "A senha deve conter:",
+            "• Pelo menos 8 caracteres",
+            "• Pelo menos 1 letra minúscula",
+            "• Pelo menos 1 letra maiúscula",
+            "• Pelo menos 1 número",
+            "• Pelo menos 1 caractere especial (!@#$&%*_-)",
+            "• Evite sequências de caracteres ou muitas repetições"
+        ],
+        "length": {
+            "min": "A senha deve ter pelo menos {} caracteres",
+            "max": "A senha deve ter até {} caracteres"
+        },
+        "new": "Nova Senha",
+        "p": "Senhas",
+        "required": "É obrigatório inserir uma senha",
+        "reset": "Redefinir Senha",
+        "s": "Senha",
+        "show": "Mostrar senha",
+        "strong": "Senha forte",
+        "very-strong": "Senha muito forte",
+        "weak": {
+            "digits": "A senha deve conter pelo menos 1 número",
+            "lowercase": "A senha deve conter pelo menos 1 letra minúscula",
+            "no-whitespace": "A senha não pode conter espaços",
+            "symbols": "A senha deve conter pelo menos 1 caractere especial (!@#$&%*_-)",
+            "uppercase": "A senha deve conter pelo menos 1 letra maiúscula"
+        },
+        "confirm": "Confirmar senha"
+    },
+    "periods": {
+        "chart": {
+            "s": {
+                "l": "{}s",
+                "s": "{} segundo",
+                "p": "{} segundos"
+            },
+            "m": {
+                "l": "{}m",
+                "s": "{} minuto",
+                "p": "{} minutos"
+            },
+            "H": {
+                "l": "{}H",
+                "s": "{} hora",
+                "p": "{} horas"
+            },
+            "D": {
+                "l": "{}D",
+                "s": "{} dia",
+                "p": "{} dias"
+            },
+            "W": {
+                "l": "{}W",
+                "s": "{} semana",
+                "p": "{} semanas"
+            },
+            "M": {
+                "l": "{}M",
+                "s": "{} mês",
+                "p": "{} meses"
+            },
+            "Y": {
+                "l": "{}Y",
+                "s": "{} ano",
+                "p": "{} anos"
+            }
+        }
+    },
+    "plan": {
+        "s": "Plano",
+        "p": "Planos"
+    },
+    "price": {
+        "p": "Preços",
+        "s": "Preço"
+    },
+    "rate": {
+        "p": "Variações",
+        "s": "Variação"
+    },
+    "related-topics": "Tópicos relacionados por relevância",
+    "search": {
+        "coin": "Pesquisar criptomoeda",
+        "news": "Pesquisar notícias"
+    },
+    "save": "Salvar",
+    "second": {
+        "a": "Seg",
+        "p": "Segundos",
+        "s": "Segundo"
+    },
+    "see-more-news": "Ver mais notícias",
+    "secret": {
+        "p": "Segredos",
+        "s": "Segredo"
+    },
+    "select-exchange": "Selecionar exchange",
+    "sell": {
+        "p": "Vendas",
+        "s": "Venda"
+    },
+    "sel-lang": "Selecionar idioma",
+    "settings": "Configurações",
+    "show": {
+        "v": "Mostrar",
+        "more": "Mostrar mais",
+        "less": "Mostrar menos"
+    },
+    "sign": {
+        "in": {
+            "v": "Entrar",
+            "i": "Entrar na sua conta"
+        },
+        "out": {
+            "v": "Sair"
+        },
+        "up": {
+            "v": "Registrar-se",
+            "i": "Criar sua conta"
+        }
+    },
+    "start": {
+        "p": "Inícios",
+        "s": "Início",
+        "v": "Iniciar"
+    },
+    "target": {
+        "p": "Alvos",
+        "s": "Alvo"
+    },
+    "terms-of-service": {
+        "p": "Termos de Serviço",
+        "s": "Termo de Serviço",
+        "f": "Declaro que li e concordo com os ",
+        "r": "É necessário ler e concordar com os termos de serviço"
+    },
+    "theme": {
+        "dark": {
+            "s": "Modo Escuro",
+            "i": "Ativar modo escuro"
+        },
+        "bright": {
+            "s": "Modo Claro",
+            "i": "Ativar modo claro"
+        }
+    },
+    "timeline": {
+        "p": "Linhas do Tempo",
+        "s": "Linha do Tempo"
+    },
+    "top10-cryptos": "Top 10 criptomoedas",
+    "top-gainers": "Top em Alta",
+    "top-loosers": "Top em Baixa",
+    "top-volumes": "Top por Volume",
+    "trends": "Tendências",
+    "news": "Notícias",
+    "tutorial": {
+        "overview": {
+            "0": "Bem-vindo ao Minhas Finanças! Vamos fornecer algumas dicas para começar. Se desejar, o tutorial pode ser repetido mais tarde.",
+            "1": "Ao clicar no nome de usuário e na foto do perfil, mais ações são exibidas.",
+            "2": "Neste botão, você pode alterar o tema entre modos claro e escuro.",
+            "3": "Aqui, você pode clicar e selecionar seu idioma preferido para usar.",
+            "4": "Nesta primeira parte da visão geral, variações em seus investimentos são exibidas para períodos personalizáveis.",
+            "5": "Seu saldo de portfólio simulado será mostrado aqui. Os valores correspondem a todas as criptomoedas monitoradas.",
+            "6": "Neste gráfico, você pode acompanhar a variação histórica das suas criptomoedas monitoradas ao longo do tempo.",
+            "7": "Nos cartões de criptomoedas, você pode monitorar informações em tempo real sobre cada criptomoeda monitorada.",
+            "8": "Na tabela de sinais recentes, você pode ver o histórico de eventos de compra e venda de cada criptomoeda monitorada nos últimos 7 dias."
+        },
+        "signals": {
+            "0": "Bem-vindo ao Minhas Finanças! Vamos fornecer algumas dicas para começar. Se desejar, o tutorial pode ser repetido mais tarde.",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": ""
+        },
+        "dashboard": {
+            "0": "Bem-vindo ao Minhas Finanças! Vamos fornecer algumas dicas para começar. Se desejar, o tutorial pode ser repetido mais tarde.",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": ""
+        },
+        "trend-and-news": {
+            "0": "Bem-vindo ao Minhas Finanças! Vamos fornecer algumas dicas para começar. Se desejar, o tutorial pode ser repetido mais tarde.",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": ""
+        },
+        "wallet": {
+            "0": "Bem-vindo ao Minhas Finanças! Vamos fornecer algumas dicas para começar. Se desejar, o tutorial pode ser repetido mais tarde.",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": ""
+        },
+        "settings": {
+            "0": "Se desejar, você pode alterar sua foto de perfil aqui.",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
+        }
+    },
+    "update-profile-pic": "Alterar foto de perfil",
+    "upgrade": {
+        "plan": "Atualizar"
+    },
+    "username": {
+        "p": "E-mails",
+        "s": "E-mail"
+    },
+    "variation": {
+        "p": "Variações",
+        "s": "Variação"
+    },
+    "verify": {
+        "email": "Enviar código de verificação por e-mail",
+        "v": "Verificar"
+    },
+    "wallet": "Carteira",
+    "week": {
+        "p": "Semanas",
+        "s": "Semana"
+    },
+    "yes": "Sim",
+    "yield": {
+        "p": "Rendimentos",
+        "s": "Rendimento"
+    },
+    "your-data": {
+        "p": "Seus Dados",
+        "s": "Seus Dados"
+    },
+    "your-wallet": {
+        "p": "Sua Carteira",
+        "s": "Sua Carteira"
+    },
+    "time": "Tempo",
+    "symbol": {
+        "p": "Símbolos",
+        "s": "Símbolo"
+    },
+    "sentiment": {
+        "p": "Sentimentos",
+        "s": "Sentimento"
+    },
+    "stop-loss": "Stop Loss",
+    "pnl": "PnL",
+    "confirm": "Confirmar",
+    "restart-tour": "Reiniciar Tour",
+    "policy": {
+        "p": "Políticas",
+        "s": "Política"
+    },
+    "terms-and-conditions": "Termos e Condições",
+    "privacy-policy": "Política de Privacidade",
+    "dashboard": {
+        "p": "Dashboards",
+        "s": "Dashboard"
+    },
+    "signal": {
+        "p": "Sinais",
+        "s": "Sinal"
+    },
+    "validate": "Validar",
+    "open-doc": "Abrir documento",
+    "continue": "Continuar",
+    "send-code": "Enviar código",
+    "resend-code": "Reenviar código",
+    "validate-code": "Validar código",
+    "name": "Nome",
+    "next": "Próximo",
+    "restart": "Reiniciar",
+    "currency": {
+        "s": "Moeda",
+        "p": "Moedas"
+    },
+    "corporate": "Corporativo",
+    "send-code-email": "Enviando código para seu e-mail...",
+    "send-code-email-fail": "Não foi possível enviar o código para seu e-mail. Por favor, tente novamente mais tarde",
+    "sent-code-email": "Um código foi enviado para seu e-mail",
+    "invalid-email-try-again": "Insira um e-mail válido e tente novamente",
+    "success-balance-edit": "O saldo foi atualizado com sucesso",
+    "error-balance-edit": "Ocorreu um erro ao tentar atualizar o saldo",
+    "mfa-6-digits": "O código MFA deve ter 6 dígitos",
+    "success-exchange-remove": "Conexão de exchange removida com sucesso",
+    "error-exchange-remove": "Ocorreu um erro ao tentar remover a conexão de exchange",
+    "success-exchange-connect": "Conexão de exchange adicionada com sucesso",
+    "error-exchange-connect": "Credenciais inválidas, por favor verifique e tente novamente",
+    "unexpected-error": "Erro inesperado",
+    "side": {
+        "p": "Lados",
+        "s": "Lado"
+    },
+    "message-signals-empty": "Conecte exchanges e adicione ativos ao seu portfólio para visualizar o histórico de pedidos",
+    "ats-reports": "Relatórios ATS",
+    "ask-confirm-delete-exchange-connection": "Tem certeza de que deseja deletar esta conexão de exchange? Isso afetará seu portfólio Minhas Finanças.",
+    "ask-confirm-website-redirect": "Você será redirecionado para o site da {source}. Deseja continuar?",
+    "ask-confirm-news-redirect": "Você será redirecionado para a página de Notícias. Deseja continuar?",
+    "ask-confirm-wallet-redirect": "Você será redirecionado para a página da Carteira. Deseja continuar?",
+    "ask-confirm-reset-password-redirect": "Você será redirecionado para o formulário de redefinição de senha. Deseja continuar?",
+    "profile-pic": "Foto de perfil",
+    "personal-data": "Dados pessoais",
+    "upload-profile-pic": "Enviar nova foto",
+    "validate-email": "Validar e-mail",
+    "validate-password": "Validar senha",
+    "multi-factor-smartphone": "Autenticação multifator via smartphone",
+    "agree-to-our-policy": "Concordar com nossa política",
+    "success-fullname-change": "Nome completo atualizado com sucesso. Recarregando a página...",
+    "error-fullname-change": "Ocorreu um erro ao tentar atualizar o nome completo",
+    "reveal-mfa-qr-code": "Revelar código QR MFA",
+    "hide-mfa-qr-code": "Ocultar código QR MFA",
+    "error-fetch-mfa-qr-code": "Ocorreu um erro ao tentar buscar o código QR MFA",
+    "selected-exchange": "Exchange Selecionada",
+    "your-balance": {
+        "p": "Seus saldos",
+        "s": "Seu saldo"
+    },
+    "total": "Total",
+    "position": {
+        "p": "Posições",
+        "s": "Posição"
+    },
+    "upgrade-plan": "Faça o upgrade do seu plano!",
+    "hide-small-positions": "Ocultar < 1 {currency}",
+    "upload-another-pic": "Fazer upload de outra foto",
+    "change-account": "Trocar conta",
+    "success-avatar-update": "Avatar atualizado com sucesso. Recarregando a página...",
+    "error-avatar-update": "Ocorreu um erro ao tentar atualizar o avatar",
+    "profile-pic-label": "Clique na imagem para escolher uma nova",
+    "mfaqrcode-label": "Você pode escanear o código QR com um aplicativo autenticador. Recomendamos o Google Authenticator ou o Microsoft Authenticator.",
+    "exchange": {
+        "p": "Corretoras",
+        "s": "Corretora"
+    },
+    "timeframe": {
+        "p": "Intervalos de Tempo",
+        "s": "Intervalo de Tempo"
+    },
+    "pair": {
+        "p": "Pares",
+        "s": "Par"
+    },
+    "all": "Todos",
+    "all-sides": "Todos os Lados",
+    "last-orders": "Últimos Pedidos",
+    "last-trades": "Últimas Operações",
+    "order": {
+        "p": "Pedidos",
+        "s": "Pedido"
+    },
+    "apply": "Aplicar",
+    "refresh": "Atualizar",
+    "generated-by-ats": "Gerado automaticamente pelo ATS da BNX",
+    "see-more-trades": "Ver mais operações",
+    "confirm-redirect-to-trades": "Você será redirecionado para a página de Operações. Deseja continuar?",
+    "top-minhas-financas-score": "Top Score BNX",
+    "top-100-cryptos": "Top 100",
+    "trade": {
+        "p": "Operações",
+        "s": "Operação"
+    },
+    "trades": "Operações",
+    "ats-pages": "ATS",
+    "ats-settings": "Configurações do ATS",
+    "execution": {
+        "p": "Execuções",
+        "s": "Execução"
+    },
+    "execution-details": "Detalhes da Execução",
+    "with-signal-only": "Apenas com Sinal",
+    "order-id": "ID do Pedido",
+    "negotiation": {
+        "p": "Negociações",
+        "s": "Negociação"
+    },
+    "30m": "30 minutos",
+    "1h": "1 hora",
+    "4h": "4 horas",
+    "1d": "1 dia",
+    "no-signal": "Sem Sinal",
+    "no-order": "Sem Pedido",
+    "no-details": "Sem Detalhes",
+    "buy-at": "Comprar por {price}",
+    "sell-at": "Vender por {price}",
+    "buy-amount-at": "Comprar {amount} por {price}",
+    "sell-amount-at": "Vender {amount} por {price}",
+    "no-signal-to-create-order": "Sem sinal para criar um pedido",
+    "condition": {
+        "p": "Condições",
+        "s": "Condição"
+    },
+    "ats": {
+        "entry-advanced-mean-reversion": {
+            "label": "Entrada de Reversão Média Avançada",
+            "desc": "Define a condição de entrada para a estratégia de Reversão Média Avançada baseada no Alpha #1."
+        },
+        "exit-advanced-mean-reversion": {
+            "label": "Saída de Reversão Média Avançada",
+            "desc": "Define a condição de saída para a estratégia de Reversão Média Avançada baseada no Alpha #1."
+        },
+        "entry-long-term-momentum": {
+            "label": "Entrada de Momentum de Longo Prazo",
+            "desc": "Define a condição de entrada para a estratégia de Momentum de Longo Prazo baseada no Alpha #19."
+        },
+        "exit-long-term-momentum": {
+            "label": "Saída de Momentum de Longo Prazo",
+            "desc": "Define a condição de saída para a estratégia de Momentum de Longo Prazo baseada no Alpha #19."
+        },
+        "entry-dynamic-price-reversal": {
+            "label": "Entrada de Reversão de Preço Dinâmica",
+            "desc": "Define a condição de entrada para a estratégia de Reversão de Preço Dinâmica baseada no Alpha #9."
+        },
+        "exit-dynamic-price-reversal": {
+            "label": "Saída de Reversão de Preço Dinâmica",
+            "desc": "Define a condição de saída para a estratégia de Reversão de Preço Dinâmica baseada no Alpha #9."
+        },
+        "entry-combined-rank-decay": {
+            "label": "Entrada de Decaimento de Ranking Combinado",
+            "desc": "Define a condição de entrada para a estratégia de Decaimento de Ranking Combinado baseada no Alpha #92."
+        },
+        "exit-combined-rank-decay": {
+            "label": "Saída de Decaimento de Ranking Combinado",
+            "desc": "Define a condição de saída para a estratégia de Decaimento de Ranking Combinado baseada no Alpha #92."
+        },
+        "delta-period": {
+            "label": "Período Delta",
+            "desc": "O número de períodos sobre os quais a mudança (delta) no preço é calculada."
+        },
+        "price-col": {
+            "label": "Coluna de Preço",
+            "desc": "A coluna de preço específica usada nos cálculos (por exemplo, 'close', 'open')."
+        },
+        "alpha-001": {
+            "label": "Alpha #1",
+            "desc": "Valor do indicador para Alpha 001 usado na estratégia de Reversão Média Avançada."
+        },
+        "alpha-009": {
+            "label": "Alpha #9",
+            "desc": "Valor do indicador para Alpha 009 usado na estratégia de Reversão de Preço Dinâmica."
+        },
+        "alpha-019": {
+            "label": "Alpha #19",
+            "desc": "Valor do indicador para Alpha 019 usado na estratégia de Momentum de Longo Prazo."
+        },
+        "alpha-092": {
+            "label": "Alpha #92",
+            "desc": "Valor do indicador para Alpha 092 usado na estratégia de Decaimento de Ranking Combinado."
+        },
+        "sum-returns-period": {
+            "label": "Período de Soma de Retornos",
+            "desc": "O período durante o qual os retornos são somados para cálculos de momentum."
+        },
+        "volume": {
+            "label": "Volume",
+            "desc": "Dados de volume de negociação usados nos cálculos."
+        },
+        "decay-period": {
+            "label": "Período de Decaimento",
+            "desc": "O período usado na função de decaimento para ponderar os dados."
+        },
+        "period": {
+            "label": "Período",
+            "desc": "Parâmetro geral de período de tempo usado nos cálculos."
+        },
+        "open": {
+            "label": "Preço de Abertura",
+            "desc": "Dados de preço de abertura dentro de um determinado período."
+        },
+        "high": {
+            "label": "Preço Máximo",
+            "desc": "Dados de preço mais alto dentro de um determinado período."
+        },
+        "low": {
+            "label": "Preço Mínimo",
+            "desc": "Dados de preço mais baixo dentro de um determinado período."
+        },
+        "close": {
+            "label": "Preço de Fechamento",
+            "desc": "Dados de preço de fechamento para uma sessão de negociação."
+        },
+        "returns": {
+            "label": "Retornos",
+            "desc": "Retornos calculados com base nas variações de preço ao longo do tempo."
+        },
+        "ts-argmax": {
+            "label": "ArgMax Série Temporal",
+            "desc": "O índice temporal no qual o valor máximo ocorre em uma série temporal."
+        },
+        "ranked-ts-argmax": {
+            "label": "ArgMax Série Temporal Classificada",
+            "desc": "A classificação percentil do índice temporal onde o valor máximo ocorre em uma série temporal."
+        },
+        "ohlcv": {
+            "label": "Dados OHLCV",
+            "desc": "Conjunto de dados contendo informações de Abertura, Máximo, Mínimo, Fechamento e Volume para ativos."
+        },
+        "wavelet_close": {
+            "label": "Preço de Fechamento Wavelet",
+            "desc": "Dados de preço de fechamento transformados usando análise wavelet para redução de ruído."
+        },
+        "argmax": {
+            "label": "Tamanho da Janela ArgMax",
+            "desc": "O tamanho da janela usada para calcular o índice do valor máximo em uma série."
+        },
+        "price_col": {
+            "label": "Coluna de Preço",
+            "desc": "Nome da coluna de dados de preço usada nos cálculos."
+        },
+        "shift": {
+            "label": "Deslocamento de Dados",
+            "desc": "O número de períodos pelos quais os dados são deslocados para trás."
+        },
+        "stddev": {
+            "label": "Janela de Desvio Padrão",
+            "desc": "O tamanho da janela usada para calcular o desvio padrão."
+        },
+        "threshold": {
+            "label": "Limite",
+            "desc": "Valor usado como ponto de corte nas condições de decisão."
+        },
+        "rolling-window": {
+            "label": "Tamanho da Janela Deslizante",
+            "desc": "O tamanho da janela para cálculos móveis como médias ou somas."
+        },
+        "threshold-per-range": {
+            "label": "Limite por Faixa",
+            "desc": "Valores de limite específicos atribuídos a diferentes faixas de preço."
+        },
+        "delta_period": {
+            "label": "Período Delta",
+            "desc": "O número de períodos sobre os quais a variação de preço (delta) é medida."
+        },
+        "corr-period": {
+            "label": "Período de Correlação",
+            "desc": "O número de períodos sobre os quais a correlação é calculada."
+        },
+        "decay-period-1": {
+            "label": "Período de Decaimento 1",
+            "desc": "O primeiro período de decaimento usado na função de decaimento."
+        },
+        "decay-period-2": {
+            "label": "Período de Decaimento 2",
+            "desc": "O segundo período de decaimento usado na função de decaimento."
+        },
+        "period-1": {
+            "label": "Período de Ranking 1",
+            "desc": "O tamanho da janela para o primeiro cálculo de ranking de séries temporais."
+        },
+        "period-2": {
+            "label": "Período de Ranking 2",
+            "desc": "O tamanho da janela para o segundo cálculo de ranking de séries temporais."
+        },
+        "price": {
+            "label": "Preço",
+            "desc": "Dados de preço usados em vários cálculos."
+        },
+        "price-fit-thld-range": {
+            "label": "Limite baseado na faixa de preço",
+            "desc": "Indica se o limite considerado foi baseado em uma faixa de preço ou não."
+        },
+        "ts-max-delta": {
+            "label": "Delta Máximo da Série Temporal",
+            "desc": "A diferença máxima de preço observada em uma janela deslizante."
+        },
+        "ts-min-delta": {
+            "label": "Delta Mínimo da Série Temporal",
+            "desc": "A diferença mínima de preço observada em uma janela deslizante."
+        },
+        "stddev-returns": {
+            "label": "Desvio Padrão dos Retornos",
+            "desc": "Desvio padrão calculado em uma janela específica de valores de retorno."
+        },
+        "wavelet-close": {
+            "label": "Preço de Fechamento Wavelet",
+            "desc": "Dados de preço de fechamento transformados usando análise wavelet para redução de ruído."
+        },
+        "slippage": {
+            "label": "Slippage",
+            "desc": "Slippage é a diferença entre o preço real e o preço esperado de uma transação."
+        }
+    },
+    "showing-x-of-y": "Mostrando {x} de {y}",
+    "exchange-order-id": "ID da Corretora",
+    "delay-signal-to-order": "Segundos do Sinal para o Pedido",
+    "detail": {
+        "s": "Detalhe",
+        "p": "Detalhes"
+    },
+    "success-order": {
+        "p": "Pedidos Bem-Sucedidos",
+        "s": "Pedido Bem-Sucedido"
+    },
+    "error-order": {
+        "p": "Pedidos Falhados",
+        "s": "Pedido Falhado"
+    },
+    "warning-order": {
+        "p": "Pedidos Pulados",
+        "s": "Pedido Pulado"
+    },
+    "executed-at": "Executado em",
+    "export": "Exportar",
+    "financial-insights": "Dicas Financeiras",
+    "account": {
+        "p": "Contas",
+        "s": "Conta"
+    },
+    "cards": {
+        "p": "Cartões",
+        "s": "Cartão"
+    },
+    "investment": {
+        "p": "Investimentos",
+        "s": "Investimento"
+    },
+    "expenses-graph": "Gráfico de Despesas",
+    "revenue": {
+        "p": "Receitas",
+        "s": "Receita"
+    },
+    "expense": {
+        "p": "Despesas",
+        "s": "Despesa"
+    },
+    "received": {
+        "p": "Recebidos",
+        "s": "Recebido"
+    },
+    "paid": {
+        "p": "Pagos",
+        "s": "Pago"
+    },
+    "transaction": {
+        "p": "Transações",
+        "s": "Transação"
+    },
+    "add-account": "Adicionar Conta",
+    "add-credit-card": "Adicionar Cartão de Crédito",
+    "select-connector": "Selecione o conector"
+}

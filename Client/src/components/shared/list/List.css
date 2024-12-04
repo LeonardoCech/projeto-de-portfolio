@@ -1,0 +1,274 @@
+.list {
+    & img {
+        height: 2rem;
+    }
+
+    & .amount {
+        font-size: small;
+    }
+
+    & :is(.amount, .currency, .pnl) {
+        text-align: end;
+    }
+
+    & .list-item {
+        cursor: pointer;
+        transition: var(--transition-primary);
+    }
+
+    & .list-item:hover {
+        background-color: var(--platinum);
+        border-radius: var(--border-radius);
+        transition: var(--transition-primary);
+    }
+
+    & .list-message {
+        color: var(--color-secondary);
+        font-size: small;
+    }
+}
+
+body.dark .list {
+    & .list-item:hover {
+        background-color: var(--jet);
+    }
+}
+
+/* COINS LIST ============================ */
+
+.list.coin-list {
+    & .list-item {
+
+        & .card {
+            border: .15rem solid transparent !important;
+            border-radius: var(--border-radius);
+            padding: var(--padding-quaternary) var(--padding-primary);
+        }
+
+        & .card:hover {
+            background-color: #eeeeee;
+        }
+
+        & .expandable.d-none {
+            animation: collapseListItem 500ms ease-in-out;
+            height: 0%;
+            overflow: hidden;
+        }
+
+        & .expandable:not(.d-none) {
+            animation: expandListItem 500ms ease-in-out;
+            border: .15rem solid var(--platinum);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            border-top: unset;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        & .card:has(+ .expandable:not(.d-none)) {
+            border: .15rem solid var(--platinum) !important;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            border-bottom: unset !important;
+        }
+
+        & .currency {
+            font-size: small;
+        }
+    }
+
+    & .list-item:hover {
+        background-color: unset !important;
+    }
+}
+
+body.dark .list.coin-list {
+    & .list-item {
+        & .card:hover {
+            background-color: var(--jet);
+        }
+
+        & .expandable:not(.d-none) {
+            border: .15rem solid var(--jet);
+            border-top: unset;
+        }
+
+        & .card:has(+ .expandable:not(.d-none)) {
+            border: .15rem solid var(--jet) !important;
+            border-bottom: unset !important;
+        }
+    }
+}
+
+/* COIN RANKING ===================================== */
+
+.list.coin-ranking {
+    width: 17rem;
+
+    & .list-item {
+        height: 3rem;
+        margin-bottom: var(--margin-tertiary);
+        position: relative;
+    }
+
+    & .coin-label {
+        padding-left: var(--padding-primary);
+    }
+
+    & .pnl {
+        font-size: small;
+    }
+
+    & :is(.currency, .pnl) {
+        margin-left: var(--margin-primary);
+        width: fit-content;
+    }
+
+    & .rank-position {
+        font-size: x-small;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        width: 1.5rem;
+    }
+
+    & :is(#rank-position-0, #rank-position-1, #rank-position-2) {
+        border-radius: var(--border-radius);
+        color: rgba(0, 0, 0, .5);
+        font-weight: bold;
+        opacity: .7;
+    }
+
+    & #rank-position-0 {
+        background: var(--gold);
+    }
+
+    & #rank-position-1 {
+        background: var(--silver);
+    }
+
+    & #rank-position-2 {
+        background: var(--bronze);
+    }
+}
+
+/* ORDERS OVERVIEW =================================== */
+
+.list.orders {
+
+    & #orders-list-header,
+    .list-item {
+        padding-right: var(--padding-secondary);
+    }
+
+    & .col-0 {
+        width: 2rem !important;
+        text-align: center;
+    }
+
+    & .col-1 {
+        width: 10rem !important;
+    }
+
+    & .col-2 {
+        width: 7rem !important;
+    }
+
+    & .col-3 {
+        width: 10rem !important;
+    }
+
+    & .col-4 {
+        width: 5rem !important;
+    }
+
+    & label.col-5 {
+        padding: .25rem .5rem;
+    }
+
+    & .col-5 {
+        width: 3rem !important;
+        text-align: center;
+    }
+
+    & .col-6 {
+        font-size: small;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 6rem !important;
+    }
+}
+
+/* SIGNALS OVERVIEW =================================== */
+
+.list.signals {
+
+    & #signals-list-header,
+    .list-item {
+        padding: 0 var(--padding-secondary);
+    }
+
+    & .col-0 {
+        width: 6rem !important;
+    }
+
+    & .col-1 {
+        width: 7rem !important;
+    }
+
+    & .col-2 {
+        width: 10rem !important;
+    }
+
+    & .col-3 {
+        width: 5rem !important;
+    }
+
+    & label.col-4 {
+        padding: .25rem .5rem;
+    }
+
+    & .col-4 {
+        width: 2rem !important;
+        text-align: center;
+    }
+
+    & .col-5 {
+        width: 3rem !important;
+        text-align: center;
+    }
+
+    & .col-6 {
+        width: 3rem !important;
+        text-align: center;
+    }
+}
+
+/* USER EXCHANGES ==================================== */
+
+.list.user-exchanges {
+    & .item {
+        border: 1px solid var(--anti-flash-white);
+        border-radius: var(--border-radius);
+        user-select: none;
+    }
+
+    & .title {
+        font-size: medium;
+    }
+
+    & .input {
+        padding: 0 var(--padding-secondary)
+    }
+
+    & .switchable-icon {
+        margin-left: .5rem;
+        padding: .4rem;
+    }
+
+    & .icon-svg {
+        width: 1rem;
+    }
+}
+
+body.dark .list.user-exchanges .item {
+    border-color: var(--jet);
+}

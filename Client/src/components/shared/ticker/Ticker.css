@@ -1,0 +1,47 @@
+.ticker {
+    background-color: rgba(10, 10, 10, .5);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    width: 40rem !important;
+}
+
+.ticker .slide-track {
+    animation: scroll 90s linear infinite;
+    display: flex;
+    width: min-content;
+}
+
+.ticker:hover .slide-track {
+    animation-play-state: paused;
+}
+
+.ticker .item {
+    border-right: 1px solid gray;
+    height: fit-content;
+    margin: var(--margin-primary) 0;
+    padding: 0 var(--padding-primary) 0 0;
+    width: 23rem;
+}
+
+.ticker img {
+    height: 1.5rem !important;
+    margin-right: var(--margin-primary);
+}
+
+.ticker p {
+    font-size: small;
+}
+
+body.dark .ticker :is(.coin-name, .coin-symbol, .currency) {
+    color: var(--color-quaternary);
+}
+
+.ticker .price p {
+    border-radius: var(--border-radius);
+}
+
+.ticker .price .currency {
+    margin-left: var(--margin-primary);
+}

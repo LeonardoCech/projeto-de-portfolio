@@ -1,0 +1,27 @@
+.loading-overlay {
+    background-color: var(--body-bg-color);
+    color: var(--default-color) !important;
+    height: var(--fill-all);
+    position: absolute;
+    width: var(--fill-all);
+    z-index: 999;
+}
+
+body.dark .loading-overlay {
+    background-color: var(--body-bg-color-dark);
+    color: var(--default-color-dark) !important;
+}
+
+.loading-overlay #loading-logo {
+    align-items: center;
+    animation: flashing 2s linear infinite;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 25vh;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+}

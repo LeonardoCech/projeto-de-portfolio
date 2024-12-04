@@ -1,0 +1,24 @@
+
+.switchable-icon {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: .5rem;
+    transition: var(--transition-secondary);
+}
+
+.switchable-icon:hover {
+    background: #eeeeee;
+}
+
+:is(body.dark .header, .header) .switchable-icon:hover {
+    background: none;
+}
+
+body.dark .switchable-icon:hover {
+    background: var(--jet);
+}
+
+.switchable-icon p {
+    margin-left: var(--margin-primary);
+    user-select: none;
+}

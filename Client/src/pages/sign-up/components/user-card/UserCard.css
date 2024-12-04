@@ -1,0 +1,10 @@
+
+.user-card {
+    border: 1px solid var(--anti-flash-white);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+body.dark .user-card {
+    border: 1px solid var(--resin-black) !important;
+}

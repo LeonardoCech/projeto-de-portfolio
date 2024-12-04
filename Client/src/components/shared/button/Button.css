@@ -1,0 +1,116 @@
+
+button {
+    align-items: center;
+    border: var(--input-border-default);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    font-size: small;
+    font-weight: bold;
+    justify-content: center;
+    line-height: 1rem;
+    padding: var(--padding-quinarynary) var(--padding-primary);
+    user-select: none;
+    transition: var(--transition-primary);
+
+    & img {
+        filter: invert();
+        width: 1.5rem;
+    }
+}
+
+button:disabled {
+    box-shadow: unset;
+    cursor: no-drop;
+    opacity: .35;
+}
+
+button img {
+    height: 1rem;
+}
+
+/* Button primary ============================================================= */
+
+button.primary {
+    color: var(--color-quaternary);
+    background: var(--btn-primary-bg-color);
+}
+
+button.primary:hover {
+    background: var(--btn-primary-bg-color-hover);
+}
+
+button.primary:disabled {
+    background: var(--btn-primary-bg-color-disabled);
+}
+
+/* Button secondary ============================================================= */
+
+button.secondary {
+    color: var(--btn-secondary-color);
+    background: var(--btn-secondary-bg-color);
+    outline: var(--btn-secondary-border);
+    outline-offset: -.1rem;
+}
+
+body.dark button.secondary {
+    color: var(--btn-secondary-color-dark);
+    background: var(--btn-secondary-bg-color-dark);
+    outline: var(--btn-secondary-border-dark);
+}
+
+button.secondary:hover {
+    background: var(--btn-secondary-bg-color-hover);
+}
+
+body.dark button.secondary:hover {
+    background: var(--btn-secondary-bg-color-hover-dark);
+}
+
+
+button.secondary:disabled {
+    background: var(--btn-secondary-bg-color-disabled);
+}
+
+body.dark button.secondary:disabled {
+    background: var(--btn-secondary-bg-color-disabled-dark);
+}
+
+button.secondary.selected {
+    background: var(--btn-secondary-bg-color-selected);
+}
+
+body.dark button.secondary.selected {
+    background: var(--btn-secondary-bg-color-selected-dark);
+}
+
+/* Button tertiary ============================================================= */
+
+button.tertiary {
+    align-items: center;
+    background: unset;
+    color: var(--btn-tertiary-color);
+    transition: all 150ms ease-in-out;
+    width: fit-content;
+}
+
+body.dark button.tertiary {
+    color: var(--btn-tertiary-color-dark);
+}
+
+button.tertiary:is(:hover,.selected) {
+    color: var(--btn-tertiary-color-selected);
+}
+
+body.dark button.tertiary:is(:hover,.selected) {
+    color: var(--btn-tertiary-color-selected-dark);
+}
+
+button.tertiary:disabled {
+    color: var(--btn-tertiary-color-disabled);
+}
+
+button.tertiary .icon-svg {
+    margin-left: .5rem;
+    width: 1.2rem;
+}

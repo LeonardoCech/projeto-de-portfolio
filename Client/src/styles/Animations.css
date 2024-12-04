@@ -1,0 +1,445 @@
+@keyframes barAnimation {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes collapseListItem {
+    from {
+        height: 100%;
+    }
+
+    to {
+        height: 0%;
+    }
+}
+
+@keyframes contractToolbar {
+    from {
+        width: 15rem;
+    }
+
+    to {
+        width: 4.5rem;
+    }
+}
+
+@keyframes dashboardExpandGradient {
+    from {
+        height: 0rem;
+    }
+
+    to {
+        height: 5rem;
+    }
+}
+
+@keyframes expandListItem {
+    from {
+        height: 0%;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes expandMfaCodeMessage {
+    from {
+        opacity: 0;
+        transition: var(--transition-primary);
+    }
+
+    to {
+        opacity: 1;
+        transition: var(--transition-primary);
+    }
+}
+
+@keyframes expandToolbar {
+    from {
+        width: 4.5rem;
+    }
+
+    to {
+        width: 15rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes flashing {
+    50% {
+        opacity: .5;
+    }
+}
+
+@keyframes moveup {
+    0% {
+        opacity: 0;
+        margin-top: 55vh;
+    }
+
+    40% {
+        opacity: 1;
+        margin-top: 45vh;
+    }
+
+    60% {
+        margin-top: 45vh;
+    }
+
+    100% {
+        @media (width > 375px) {
+            margin-top: 10vh;
+        }
+
+        @media (width <=375px) {
+            margin-top: 8vh;
+        }
+    }
+}
+
+@keyframes overviewExpandGradient {
+    from {
+        height: 7.75rem;
+    }
+
+    to {
+        height: 22rem;
+    }
+}
+
+@keyframes settingsExpandGradient {
+    from {
+        height: 7.75rem;
+    }
+
+    to {
+        height: 22rem;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes showDialog {
+    from {
+        margin-bottom: -4rem;
+    }
+
+    to {
+        margin-bottom: 0rem;
+    }
+}
+
+@keyframes showDonutChart {
+    from {
+        height: 0rem;
+    }
+
+    to {
+        height: 12rem;
+    }
+}
+
+@keyframes showLogo {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes showQRCode {
+    0% {
+        width: 0rem;
+        opacity: 0;
+    }
+
+    100% {
+        width: 12rem;
+        opacity: 1;
+    }
+}
+
+@keyframes showText {
+    0% {
+        display: none;
+    }
+
+    50% {
+        display: none;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes signalsExpandGradient {
+    from {
+        height: 0rem;
+    }
+
+    to {
+        height: 5rem;
+    }
+}
+
+@keyframes sign-in-logo-in {
+    0% {
+        opacity: 0;
+        transform: translate(10%, -50%);
+    }
+
+    80% {
+        opacity: 0;
+        transform: translate(10%, -50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(20%, -50%);
+    }
+}
+
+@keyframes sign-in-logo-out {
+    0% {
+        opacity: 1;
+        transform: translate(20%, -50%);
+    }
+
+    20% {
+        opacity: 0;
+        transform: translate(10%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(10%, -50%);
+    }
+}
+
+@keyframes sign-in-page-in {
+    0% {
+        right: 50%;
+    }
+
+    50% {
+        right: 50%;
+    }
+
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes sign-in-page-out {
+    0% {
+        right: 0;
+    }
+
+    50% {
+        right: 50%;
+    }
+
+    100% {
+        right: 50%;
+    }
+}
+
+@keyframes sign-in-panel-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes sign-in-panel-out {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+}
+
+@keyframes sign-up-page-in {
+    0% {
+        left: 50%;
+    }
+
+    50% {
+        left: 50%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes sign-up-page-out {
+    0% {
+        left: 0;
+    }
+
+    50% {
+        left: 50%;
+    }
+
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes sign-up-panel-in {
+    0% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes sign-up-panel-out {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+}
+
+@keyframes minhas-financas-logo-in-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes minhas-financas-logo-out-to-left {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    20% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+}
+
+@keyframes minhas-financas-logo-in-from-right {
+    0% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes minhas-financas-logo-out-to-right {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    20% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

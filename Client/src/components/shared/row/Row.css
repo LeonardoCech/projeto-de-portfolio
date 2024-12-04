@@ -1,0 +1,6 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-primary);
+    width: fit-content;
+}

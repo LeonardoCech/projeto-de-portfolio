@@ -1,0 +1,41 @@
+.sign-out-dialog.modal {
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-out-dialog.modal .container {
+    width: fit-content;
+    height: fit-content;
+}
+
+.sign-out-dialog .container {
+    width: 18rem !important;
+    padding: 2rem;
+}
+
+.sign-out-dialog p {
+    margin: 1rem 0 2rem 0;
+}
+
+.sign-out-dialog .container span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sign-out-dialog .container button {
+    width: 12rem;
+    height: 2.5rem;
+}
+
+.sign-out-dialog .container button.primary {
+    margin-left: 1rem;
+}

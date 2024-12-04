@@ -1,0 +1,23 @@
+#settings {
+    font-size: small;
+
+    .label {
+        font-size: x-small;
+    }
+
+    #user-profile-pic {
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    #edit-fullname-button {
+        outline-color: transparent;
+    }
+
+    .mfa-qr-code {
+        border-radius: var(--border-radius);
+        height: fit-content;
+        width: 15rem;
+    }
+}

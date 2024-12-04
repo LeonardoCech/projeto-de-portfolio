@@ -1,0 +1,26 @@
+.not-found-page {
+  padding-top: 0rem !important;
+}
+
+#not-found-page-base {
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: var(--fill-all);
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  width: var(--fill-all);
+}
+
+.not-found-page h1 {
+  background: var(--gradient-0);
+  background-clip: text;
+  font-size: var(--font-size-statuscode);
+  font-weight: 900;
+  -webkit-text-fill-color: transparent;
+}
+
+.not-found-page h3 {
+  color: var(--color-secondary);
+}

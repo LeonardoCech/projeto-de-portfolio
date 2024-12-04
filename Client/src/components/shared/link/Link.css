@@ -1,0 +1,57 @@
+
+a.link {
+    cursor: pointer;
+    font-size: small;
+    font-weight: bold;
+    width: fit-content;
+}
+
+a.link:hover {
+    text-decoration: underline;
+}
+
+
+a.link.primary,
+a.link.primary * {
+    color: var(--link-color-primary);
+}
+
+a.link.primary:visited,
+a.link.primary:visited * {
+    color: var(--link-color-primary-visited);
+}
+
+body.dark a.link.primary:visited,
+body.dark a.link.primary:visited * {
+    color: var(--link-color-primary-visited-dark);
+}
+
+a.link.secondary,
+a.link.secondary * {
+    color: var(--link-color-secondary) !important;
+}
+
+a.link.secondary:visited,
+a.link.secondary:visited * {
+    color: var(--link-color-secondary-visited) !important;
+}
+
+
+a.link.tertiary,
+a.link.tertiary * {
+    color: var(--link-color-tertiary) !important;
+}
+
+a.link.tertiary:visited,
+a.link.tertiary:visited * {
+    color: var(--link-color-tertiary-visited) !important;
+}
+
+a.link.redirect {
+    align-items: flex-start;
+    display: flex;
+
+    & svg {
+        height: 1rem;
+    }
+}

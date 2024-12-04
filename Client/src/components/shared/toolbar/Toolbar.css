@@ -1,0 +1,150 @@
+#toolbar-container {
+    margin: var(--margin-primary) 0;
+    z-index: 1000;
+
+    & #logo-container {
+        margin: 0 var(--margin-primary);
+    }
+
+    & #minhas-financas-logo-img {
+        padding: .5rem;
+        width: 2.5rem;
+    }
+
+    & #st-logo-img {
+        border-radius: unset;
+        transition: var(--transition-primary);
+        width: 8rem;
+    }
+
+    & .toolbar {
+        border-top: .2rem solid #eeeeee;
+        margin: .5rem;
+        padding-top: var(--padding-primary);
+    }
+
+    & .page-link-button {
+        padding: var(--padding-primary) var(--padding-secondary);
+        transition: none;
+
+        max-width: 10rem;
+
+        & p {
+            color: var(--color-secondary);
+            font-size: small !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        & svg {
+            padding: 0;
+            width: 2rem !important;
+        }
+
+        & .icon-svg {
+            color: var(--color-secondary) !important;
+            width: 1.5rem !important;
+        }
+    }
+
+    & #session-pic {
+        border-radius: 100%;
+        transition: var(--transition-primary) ease-in-out;
+    }
+
+    & #session-fullname {
+        text-overflow: ellipsis;
+    }
+
+    & #ats-pages-dd {
+        display: none;
+    }
+
+    & #actions-dd {
+        display: none;
+        font-size: x-small;
+    }
+
+    & #sign-out-btn .icon-svg {
+        color: var(--indian-red) !important;
+    }
+
+    & #session-user {
+        margin: 0;
+        padding: var(--padding-primary)
+    }
+
+    & button {
+        background-color: transparent;
+
+        & .icon-svg {
+            height: 1rem;
+        }
+    }
+}
+
+#toolbar-container.expanded {
+    width: 15rem;
+}
+
+#toolbar-container:is(.expanded, .hover, .stepping) {
+    animation: expandToolbar var(--transition-primary) ease-in-out;
+    transition: var(--transition-primary);
+    width: 15rem;
+
+    & #st-logo-img,
+    .toolbar .page-link-button :is(p, .expand) {
+        animation: showText var(--transition-secondary) ease-in-out;
+    }
+
+    & #session-pic {
+        margin: 0 var(--margin-primary) 0 0;
+    }
+}
+
+#toolbar-container:not(:is(.expanded, .hover, .stepping)) {
+    animation: contractToolbar var(--transition-primary) ease-in-out;
+    transition: var(--transition-primary);
+    width: 4.5rem;
+
+    & #st-logo-img,
+    .page-link-button :is(.row, p) {
+        display: none;
+    }
+
+    & .dropdown {
+        display: none !important;
+    }
+}
+
+
+body.dark #toolbar-container {
+    & #st-logo-img {
+        filter: invert(1);
+    }
+
+    & .toolbar {
+        border-top: .2rem solid var(--jet);
+    }
+
+    & #actions-dd {
+        background: var(--header-bg-color-dark);
+        border-color: var(--jet);
+    }
+
+    & #lang-dd {
+        background: var(--header-bg-color-dark);
+        border-color: var(--jet);
+    }
+
+    & #lang-dd #lang-selector {
+        & .select {
+            background: var(--jet);
+        }
+
+        & #lang-dd #lang-selector-list {
+            background: var(--header-bg-color-dark);
+        }
+    }
+}

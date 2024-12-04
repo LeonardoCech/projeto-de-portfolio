@@ -1,0 +1,57 @@
+:root {
+
+        --gradient-0: linear-gradient(120deg,
+                        #3C398D 0%,
+                        #E4003C 100%);
+
+        --gradient-1: linear-gradient(120deg,
+                        #3C398D 0%,
+                        #E4003C 100%);
+
+        /* System Colors by https://coolors.co/ */
+        --anti-flash-white: #EBEBEB;
+        --bronze: #CD7F32;
+        --cerulean: #187498;
+        --cornell-red: #A41313;
+        --delft-blue: #333371;
+        --dim-gray: #646369;
+        --eletric-purple: #A64EF9;
+        --fawn: #FFBC70;
+        --field-drab: #4C3F05;
+        --fire-engine-red: #C91818;
+        --ghost-white: #F5F5F9;
+        --glaucous: #5E7CC7;
+        --gold: #FFD700;
+        --indian-red: #EB5353;
+        --jasmine: #FFE785;
+        --jet: #3C3B3F;
+        --jungle-green: #26A17B;
+        --lapis-lazuli: #0C5D97;
+        --marian-blue: #363681;
+        --magnolia: #EBEBF6;
+        --maya-blue: #7BC2F4;
+        --mint: #44C58F;
+        --moonstone: #54B8CC;
+        --money: #2c5c4f;
+        --onyx: #46454A;
+        --oxford-blue: #12122B;
+        --picton-blue: #21A1D4;
+        --platinum: #D9D9D9;
+        --polynesian-blue: #2653A4;
+        --princeton-orange: #FF961F;
+        --resin-black: #28282A;
+        --rich-black: #0C0C1D;
+        --rsid-blue: #0057FF;
+        --sea-green: #2C8C64;
+        --silver: #A6A6A6;
+        --slate-blue: #6666bf;
+        --space-cadet: #161635;
+        --space-cadet-1: #242456;
+        --tea-green: #CCDDB7;
+        --united-nations-blue: #1D96EE;
+        --vanila: #F8E8A0;
+        --viridian: #3C7C6B;
+        --white: #FFFFFF;
+        --white-smoke: #F5F5F5;
+        --zomp: #07A588;
+}

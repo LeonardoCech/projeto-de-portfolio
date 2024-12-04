@@ -1,0 +1,886 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* 
+CAUTION:
+Disabling Error messages overlay.
+This is for temporary use (TradingView Ticker Tape widget error)
+It may cause difficult to debug another erros during development
+*/
+#webpack-dev-server-client-overlay {
+  display: none;
+}
+
+/*Standard values*/
+:root {
+  --border-radius: .75rem;
+  --badge-border-radius: .5rem;
+  --badge-1-border-radius: .25rem;
+  --container-width: 20rem;
+  --container-height: 10rem;
+  --fill-all: -webkit-fill-available;
+
+  --border-primary: .1rem solid transparent;
+  --border-secondary: .1rem solid var(--indian-red);
+  --border-tertiary: .1rem solid var(--platinum);
+  --border-tertiary-dark: .1rem solid var(--onyx);
+
+  --margin-primary: .5rem;
+  --margin-secondary: .75rem;
+  --margin-tertiary: 1rem;
+  --margin-quaternary: 2rem;
+
+  --padding-primary: .75rem;
+  --padding-secondary: 1rem;
+  --padding-tertiary: 1.25rem;
+  --padding-tertiary: 1.75rem;
+  --padding-quaternary: .25rem;
+  --padding-quinarynary: .5rem;
+
+  --gap-primary: .5rem;
+
+  --color-primary: #505050;
+  --color-primary-dark: #FFFFFF;
+  --color-secondary: #757575;
+  --color-tertiary: #bbbbbb;
+  --color-quaternary: #FFFFFF;
+
+  --font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  --font-size-statuscode: 160px;
+  --font-size-statuscode-mobile: 12.5rem;
+  --font-size-logo: 40px;
+
+  --transition-primary: .25s;
+  --transition-secondary: .50s;
+  --transition-tertiary: .75s;
+
+  --img-box-shadow: rgba(0, 0, 0, 0.25) 0rem 1rem 1rem;
+
+  --header-height-adjust: 3.75rem;
+  --header-height-adjust-negative: -3.75rem;
+
+  --header-bg-color: transparent;
+  --header-bg-color-dark: transparent;
+
+  --footer-bg-color: var(--white);
+  --footer-bg-color-dark: var(--rich-black);
+
+  --body-bg-color: #f4f4f4;
+  --body-bg-color-dark: #1d1c1f;
+
+  --container-bg-color: var(--white);
+  --container-bg-color-dark: #201f22;
+
+  --btn-primary-bg-color: var(--united-nations-blue);
+  --btn-primary-bg-color-hover: var(--maya-blue);
+  --btn-primary-bg-color-disabled: var(--united-nations-blue);
+  --btn-primary-color: var(--white);
+
+  --btn-secondary-bg-color: var(--white);
+  --btn-secondary-bg-color-dark: #201f22;
+  --btn-secondary-bg-color-disabled: var(--platinum);
+  --btn-secondary-bg-color-disabled-dark: #28282A;
+  --btn-secondary-bg-color-hover: var(--platinum);
+  --btn-secondary-bg-color-hover-dark: var(--jet);
+  --btn-secondary-bg-color-selected: var(--ghost-white);
+  --btn-secondary-bg-color-selected-dark: var(--jet);
+  --btn-secondary-border: .1rem solid var(--platinum);
+  --btn-secondary-border-dark: .1rem solid var(--onyx);
+  --btn-secondary-color: var(--color-primary);
+  --btn-secondary-color-dark: var(--color-primary-dark);
+
+  --btn-tertiary-bg-color-hover: var(--platinum);
+  --btn-tertiary-bg-color-hover-dark: var(--onyx);
+  --btn-tertiary-box-shadow-hover: 0 0 .5rem .2rem var(--eletric-purple);
+  --btn-tertiary-color: var(--color-tertiary);
+  --btn-tertiary-color-seleted: var(--color-primary);
+  --btn-tertiary-color-dark: var(--color-secondary);
+  --btn-tertiary-color-selected-dark: var(--color-primary-dark);
+
+  --input-bg-color: var(--ghost-white);
+  --input-dark-bg-color: var(--onyx);
+  --input-color: var(--color-primary);
+  --input-dark-color: var(--ghost-white);
+
+  --link-color-primary: var(--united-nations-blue);
+  --link-color-primary-visited: var(--marian-blue);
+  --link-color-primary-visited-dark: var(--maya-blue);
+  --link-color-secondary: var(--color-primary);
+  --link-color-secondary-visited: var(--marian-blue);
+  --link-color-tertiary: var(--ghost-white);
+  --link-color-tertiary-visited: var(--silver);
+
+  --img-show-icon-color: var(--silver);
+
+  --trend-down-color: var(--indian-red);
+  --trend-down-color-dark: var(--indian-red);
+  --trend-down-bg-color: rgba(235, 83, 83, 0.25);
+  --trend-down-bg-color-dark: rgba(235, 83, 83, 0.25);
+  --trend-up-color: var(--sea-green);
+  --trend-up-color-dark: var(--mint);
+  --trend-up-bg-color: rgba(38, 161, 122, .25);
+  --trend-up-bg-color-dark: rgba(38, 161, 122, .25);
+}
+
+* {
+
+  padding: 0;
+  margin: 0;
+
+  /*Font*/
+  font-family: var(--font-family);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*All Pages*/
+body {
+  background: var(--body-bg-color);
+  height: 100vh;
+  transition: var(--transition-primary);
+}
+
+body.dark {
+  background: var(--body-bg-color-dark);
+}
+
+#root {
+  height: var(--fill-all);
+}
+
+main {
+  height: var(--fill-all);
+  width: var(--fill-all);
+}
+
+p {
+  color: var(--color-primary);
+  font-size: small;
+}
+
+body.dark p {
+  color: var(--color-primary-dark);
+}
+
+.beta-tag {
+  color: var(--indian-red) !important;
+}
+
+body.dark .ant-empty-description {
+  color: var(--color-primary-dark);
+}
+
+body.dark .ant-typography {
+  color: var(--color-primary-dark);
+}
+
+hr {
+  border: 1px solid var(--ghost-white);
+  /*var(--ghost-white);*/
+  border-radius: var(--border-radius);
+  margin: var(--margin-primary) 0;
+}
+
+body.dark hr {
+  border: 1px solid var(--resin-black);
+}
+
+img {
+  border-radius: var(--border-radius);
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+label {
+  color: var(--color-primary);
+  font-size: small;
+  margin-bottom: var(--margin-primary);
+}
+
+body.dark label {
+  color: var(--color-primary-dark);
+}
+
+.side-label {
+  opacity: .5;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+.loading-fdbk {
+  filter: opacity(.25);
+}
+
+body.dark .loading-fdbk {
+  filter: invert(1);
+}
+
+
+/* Scrollbar ===================================================== */
+
+::-webkit-scrollbar {
+  height: .5rem;
+  width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* É estranho, mas para funcionar tanto no scroll da página
+ quanto dentro de divs, precisa ser assim: */
+body.dark::-webkit-scrollbar-track,
+body.dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--platinum);
+  border-radius: 1vh;
+}
+
+body.dark::-webkit-scrollbar-thumb,
+body.dark ::-webkit-scrollbar-thumb {
+  background: var(--onyx);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--silver);
+}
+
+body.dark::-webkit-scrollbar-thumb:hover,
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--jet);
+}
+
+/* Containers ==================================================== */
+
+.container {
+  background: var(--container-bg-color);
+  border: var(--border-primary);
+  border-radius: var(--border-radius);
+  padding: var(--padding-primary);
+}
+
+body.dark .container {
+  color: var(--color-primary-dark);
+  background: var(--container-bg-color-dark);
+}
+
+body.dark .ant-list-split .ant-list-item {
+  border-block-end: 1px solid rgba(5, 5, 5, 0.5);
+}
+
+body.dark .ant-card {
+  color: var(--color-primary-dark);
+  background: var(--container-bg-color-dark);
+  border: 1px solid var(--container-bg-color-dark);
+  box-shadow: var(--container-box-shadow);
+}
+
+/* Customize the label (the input-checkbox-container) */
+.input-checkbox-container {
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  display: block;
+  position: relative;
+  margin-right: .5rem;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-size: medium;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  border: 1px solid var(--silver);
+  border-radius: .25rem;
+}
+
+body.dark .input-checkbox-container {
+  border: 1px solid var(--onyx);
+}
+
+.input-checkbox-container input:checked~.checkmark {
+  background-color: var(--onyx);
+  width: inherit;
+  height: inherit;
+  margin: auto;
+  border-radius: .15rem;
+}
+
+/*Parece desnecessário tertiary que definir as mesmas propriedades que está em input:checked, porém, é necessário*/
+.input-checkbox-container :is(input:focus, input:hover)~.checkmark {
+  width: inherit;
+  height: inherit;
+  margin: auto;
+  border-radius: .15rem;
+}
+
+.input-checkbox-container input:disabled~.checkmark {
+  cursor: no-drop;
+}
+
+.input-checkbox-container input:disabled:hover:not(:checked)~.checkmark {
+  background: none !important;
+}
+
+/* Hide the browser's default checkbox */
+.input-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.input-checkbox-container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.input-checkbox-container .checkmark:after {
+  left: .4rem;
+  top: .2rem;
+  width: .25rem;
+  height: .5rem;
+  border: .1rem solid var(--anti-flash-white);
+  border-width: 0 .2rem .2rem 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Minimalist input ============================================================= */
+
+.input-minimalist {
+
+  height: 2rem;
+
+  /*Align*/
+  padding: 0rem 1rem;
+
+
+  background: transparent !important;
+  border-bottom: .2rem solid var(--platinum);
+  border-radius: .1rem;
+
+  font-size: large;
+}
+
+body.dark .input-minimalist {
+  color: var(--color-primary-dark);
+  border-bottom: .2rem solid var(--space-cadet-1);
+}
+
+/* Modal =========================================================== */
+.ant-modal {
+  .ant-modal-content {
+    border-radius: var(--border-radius);
+    padding: var(--padding-tertiary);
+  }
+}
+
+body.dark .ant-modal {
+
+  .ant-modal-header,
+  .ant-modal-content {
+    background-color: var(--container-bg-color-dark);
+
+    .ant-modal-close-x {
+      color: var(--color-quaternary) !important;
+    }
+  }
+}
+
+/* Icon SVG ============================================================= */
+
+.icon-svg {
+  color: var(--img-show-icon-color);
+  cursor: pointer;
+  height: 1.25rem;
+  transition: var(--transition-primary);
+
+  &.rotate180 {
+    transform: rotate(180deg);
+  }
+
+  &.sec {
+    height: 1rem;
+  }
+
+  &.no {
+    color: var(--indian-red);
+  }
+
+  &.yes {
+    color: var(--united-nations-blue);
+  }
+
+  &.hor-flip {
+    transform: scaleX(-1);
+  }
+
+  &.ver-flip {
+    transform: scaleY(-1);
+  }
+
+  &.refresh {
+    height: 1rem;
+  }
+}
+
+
+.page-title {
+
+  font-size: xx-large;
+  font-weight: bold;
+  color: var(--white);
+
+  margin: 0 0 .5rem 1rem;
+
+  user-select: none;
+
+  animation: fadeIn linear var(--transition-primary);
+}
+
+.hidden {
+  height: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+.d-none {
+  display: none;
+}
+
+.trend-up,
+.trend-down {
+  transition: var(--transition-secondary);
+  color: var(--white)
+}
+
+.button-badge,
+.button-badge:not(:hover) {
+  background: none;
+  border: 0.15rem solid var(--platinum);
+  color: var(--silver);
+  font-weight: normal;
+
+  transition: var(--transition-secondary);
+}
+
+.button-badge:hover {
+  border-color: var(--glaucous);
+  color: var(--rsid-blue);
+
+  transition: var(--transition-secondary);
+}
+
+.op-buy {
+
+  background: var(--fawn) !important;
+}
+
+body.dark .op-buy {
+  background: var(--fawn) !important;
+}
+
+.op-sell {
+
+  background: var(--mint) !important;
+}
+
+body.dark .op-sell {
+  background: var(--zomp) !important;
+}
+
+.op-start {
+
+  background: var(--btn-primary-bg-color) !important;
+}
+
+body.dark .op-start {
+  background: var(--maya-blue) !important;
+}
+
+.trend-up {
+  background: var(--trend-up-bg-color) !important;
+}
+
+body.dark .trend-up {
+  background: var(--trend-up-bg-color-dark) !important;
+}
+
+.trend-up-text {
+  color: var(--trend-up-color) !important;
+}
+
+body.dark .trend-up-text {
+  color: var(--trend-up-color-dark) !important;
+}
+
+.trend-down {
+  background: var(--trend-down-bg-color) !important;
+}
+
+body.dark .trend-down {
+  background: var(--trend-down-bg-color-dark) !important;
+}
+
+.trend-down-text {
+  color: var(--trend-down-color) !important;
+}
+
+body.dark .trend-down-text {
+  color: var(--trend-down-color-dark) !important;
+}
+
+.money-value {
+  text-align: right;
+
+  &.pri {
+    font-size: large;
+  }
+
+  &.sec {
+    font-size: medium;
+  }
+}
+
+.money-currency {
+  color: var(--silver) !important;
+  font-size: small;
+  width: fit-content;
+}
+
+.initial-money-value {
+  color: var(--silver);
+  font-weight: 500;
+  font-size: small;
+  width: fit-content;
+}
+
+.occult {
+  background: var(--white-smoke) !important;
+  border-radius: var(--border-radius);
+  color: transparent !important;
+  transition: var(--transition-primary);
+  user-select: none !important;
+}
+
+body.dark .occult {
+  color: transparent !important;
+  background: #2e2c30 !important;
+}
+
+.subtitle {
+  font-weight: 500;
+  color: var(--marian-blue);
+}
+
+body.dark .subtitle {
+  color: var(--glaucous);
+}
+
+.edit-icon {
+  padding: .25rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition-secondary);
+
+  display: flex;
+  cursor: pointer;
+
+  color: var(--silver) plan!important;
+}
+
+.edit-icon:hover {
+  background: var(--united-nations-blue);
+  color: var(--white) !important;
+}
+
+.edit-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none !important;
+  color: inherit;
+}
+
+body.dark .edit-icon:hover {
+  background: var(--eletric-purple);
+}
+
+.back-link {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+  color: var(--united-nations-blue);
+  transition: .5s;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.back-link .icon-svg {
+  height: 1.2rem;
+}
+
+#logo-img {
+  width: 15rem;
+  -webkit-user-drag: none !important;
+}
+
+.reactour__close-button {
+  color: var(--color-primary-dark) !important;
+  background: var(--carousel-slides-span-active) !important;
+  border-radius: 1.625em !important;
+  height: 1.7em !important;
+  width: 2em !important;
+  line-height: 2 !important;
+  padding-left: 0.7em !important;
+  padding-right: 0.7em !important;
+  top: -0.8125em !important;
+  right: -0.8125em !important;
+  font-size: 1em !important;
+}
+
+.reactour__popover {
+  width: var(--container-width) !important;
+  border-radius: var(--border-radius) !important;
+  padding: var(--padding-tertiary) !important;
+  color: var(--color-primary) !important;
+  background: var(--container-bg-color) !important;
+  box-shadow: var(--container-box-shadow) !important;
+  text-align: justify;
+
+  & div {
+    & div {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-wrap: nowrap !important;
+    }
+
+    & button svg {
+      color: var(--color-primary) !important;
+    }
+  }
+
+  & span {
+    color: var(--color-primary-dark) !important;
+    background: var(--carousel-slides-span-active) !important;
+  }
+}
+
+body.dark .reactour__popover {
+  color: var(--color-primary-dark) !important;
+  background: var(--container-bg-color-dark) !important;
+  box-shadow: var(--container-box-shadow) !important;
+
+  & div button svg {
+    color: var(--color-primary-dark) !important;
+  }
+}
+
+.basic-settings {
+  align-items: center;
+  display: flex;
+  padding: var(--padding-tertiary);
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  & .lang-selector .select-overlap * {
+    color: var(--color-tertiary) !important;
+  }
+}
+
+body.dark .react-loading-skeleton {
+  --base-color: var(--body-bg-color-dark) !important;
+  --highlight-color: var(--resin-black) !important;
+}
+
+.top-left-logo {
+  align-items: center;
+  display: flex;
+  height: 2.75rem;
+  justify-content: center;
+  left: 0;
+  padding: var(--padding-tertiary);
+  position: absolute;
+  top: 0;
+
+  & #minhas-financas-logo {
+    animation: minhas-financas-logo-in-from-right 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 1rem;
+    margin: 0 !important;
+    user-select: none;
+    width: auto !important;
+  }
+}
+
+body.dark .top-left-logo {
+  & #minhas-financas-logo {
+    filter: invert(1)
+  }
+}
+
+.ant-steps-item-title {
+  font-size: x-small !important;
+}
+
+.password-hints {
+  margin: var(--margin-primary) 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-primary);
+}
+
+.skeleton {
+  border-radius: var(--border-radius);
+}
+
+.ant-tooltip-inner * {
+  color: white !important;
+}
+
+.mini-icon {
+  height: 1.25rem !important;
+}
+
+input[type='range'] {
+  padding: unset;
+}
+
+.ant-dropdown {
+  & .ant-dropdown-menu {
+    background-color: var(--container-bg-color) !important;
+  }
+
+  & .ant-dropdown-menu-item-group-title {
+    color: var(--color-primary) !important;
+  }
+
+  & .ant-dropdown-menu-item {
+    padding: 0;
+  }
+}
+
+body.dark .ant-dropdown {
+  & .ant-dropdown-menu {
+    background-color: var(--container-bg-color-dark) !important;
+  }
+
+  & .ant-dropdown-menu-item-group-title {
+    color: var(--color-primary-dark) !important;
+  }
+}
+
+.ant-select-selection-placeholder,
+.ant-picker-input input::placeholder,
+.ant-picker-range-separator {
+  color: var(--color-tertiary) !important;
+}
+
+body.dark .ant-select-selection-placeholder,
+body.dark .ant-picker-input input::placeholder,
+body.dark :is(.ant-picker-range-separator, .ant-picker-suffix, .anticon-close-circle) svg {
+  color: var(--color-tertiary) !important;
+}
+
+body.dark .ant-picker-input input {
+  color: var(--color-primary-dark) !important;
+}
+
+body.dark .ant-picker-panel-layout {
+  background-color: var(--container-bg-color-dark) !important;
+
+  & .ant-picker-header,
+  .ant-picker-body .ant-picker-content :is(th, td),
+  .ant-picker-super-prev-icon,
+  .ant-picker-prev-icon,
+  .ant-picker-next-icon,
+  .ant-picker-time-panel-cell-inner,
+  .ant-picker-super-next-icon {
+    color: var(--color-primary-dark) !important;
+  }
+
+  & :is(.ant-picker-cell-in-range, .ant-picker-time-panel-cell-selected) div {
+    color: var(--color-primary) !important;
+  }
+}
+
+.ant-select-selector,
+.ant-select-selection-item-content,
+.ant-select-selection-item-remove,
+.ant-select-selection-item,
+.ant-select-arrow {
+  color: var(--color-primary) !important;
+}
+
+:is(body.dark, .quick-settings) :is(.ant-select-selector,
+  .ant-select-selection-item-content,
+  .ant-select-selection-item-remove,
+  .ant-select-selection-item,
+  .ant-select-arrow) {
+  color: var(--color-primary-dark) !important;
+}
+
+body.dark .ant-radio-button-wrapper {
+  background-color: transparent;
+}
+
+body.dark .ant-select-multiple .ant-select-selection-item,
+body.dark .ant-select-item-option-selected {
+  background-color: var(--resin-black) !important;
+}
+
+body.dark .ant-select-dropdown {
+  background-color: var(--container-bg-color-dark);
+
+  & :not(.ant-select-item-option-disabled) .ant-select-item-option-content {
+    color: var(--color-primary-dark);
+  }
+
+  & .ant-select-item-option-disabled .ant-select-item-option-content {
+    color: var(--color-secondary);
+  }
+
+  & .ant-select-item:hover {
+    background-color: var(--jet);
+  }
+}
+
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):active {
+  border-color: var(--united-nations-blue) !important;
+  color: var(--united-nations-blue) !important;
+}

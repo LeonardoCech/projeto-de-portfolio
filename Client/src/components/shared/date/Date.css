@@ -1,0 +1,32 @@
+.date {
+    font-size: small;
+}
+
+.date.dynamic {
+    cursor: pointer;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    width: var(--fill-all);
+}
+
+.date.dynamic p {
+    position: absolute;
+}
+
+.date.dynamic .date {
+    color: transparent;
+}
+
+.date.dynamic:hover {
+    transition: 1s;
+}
+
+.date.dynamic:hover .date {
+    color: unset;
+}
+
+.date.dynamic:hover .from-now {
+    color: transparent
+}
