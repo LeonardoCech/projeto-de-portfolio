@@ -22,20 +22,8 @@ router = APIRouter()
 
 
 @router.post('/{email}')
-def post_emails_v1(email: EmailStr, request: Request, response: Response, language: Annotated[str | None, Header()] = 'en-US'):
+def post_emails_v1(email: EmailStr, request: Request, response: Response, language: Annotated[str | None, Header()] = 'pt-BR'):
     '''
-    Send and email with a MFA code to verify the user's email address and his integrity.
-
-    TODO(Developer): Add erros examples on Swagger\n
-    TODO(Developer): Add Pytests to test this endpoint
-
-    #### Tests:
-    ./tests/api/v1/users/emails/test_api_post_users_emails.py
-
-    #### Args:
-    - **email (str)**: The email address of the user.
-    - **x_forwarded_for (str)**: The IP address of the user.
-    - **language (str, optional)**: The language of the email. Defaults to 'en-US'.
     '''
 
     try:

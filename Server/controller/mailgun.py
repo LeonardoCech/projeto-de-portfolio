@@ -16,7 +16,7 @@ import pytz
 import json
 
 
-def send_email(user_ip, user_email, hotp_code, user_fullname='', html_id='mfa-code', lang='en-US'):
+def send_email(user_ip, user_email, hotp_code, user_fullname='', html_id='mfa-code', lang='pt-BR'):
     # IP info logic
 
     
@@ -44,7 +44,7 @@ def send_email(user_ip, user_email, hotp_code, user_fullname='', html_id='mfa-co
     if lang in translations:
         t = translations[lang]
     else:
-        t = translations['en-US']
+        t = translations['pt-BR']
 
     if html_id == 'mfa-code':
 

@@ -26,7 +26,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_dump_secret(self):
         '''
-        This function is used on the 'validate_password' function, so it MUST be tested first.
         '''
         test_class = 'Model UserModel'
         test_name = 'Dump Secret'
@@ -44,7 +43,6 @@ class TestModelUserModel(unittest.TestCase):
     
     def test_validate_password_correct(self):
         '''
-        Testing a valid password
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password Correct'
@@ -59,7 +57,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_too_short(self):
         '''
-        Testing a too short password
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password Too Short'
@@ -74,7 +71,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_too_long(self):
         '''
-        Testing a too long password
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password Too Long'
@@ -89,7 +85,6 @@ class TestModelUserModel(unittest.TestCase):
         
     def test_validate_password_not_secretstr(self):
         '''
-        Testing a not str password
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password Not SecretStr'
@@ -104,7 +99,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_empty(self):
         '''
-        Testing an empty password
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password Empty'
@@ -119,7 +113,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_not_set(self):
         '''
-        Testing a not set password
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password Not Set'
@@ -134,7 +127,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_match_regex(self):
         '''
-        Testing Password Regex
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password Regex'
@@ -149,7 +141,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_dont_match_regex_lowercase(self):
         '''
-        Testing Password that Don\'t Match Regex (no lowercase characters)
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password that Don\'t Match Regex (no lowercase characters)'
@@ -164,7 +155,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_dont_match_regex_uppercase(self):
         '''
-        Testing Password that Don\'t Match Regex (no uppercase characters)
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password that Don\'t Match Regex (no uppercase characters)'
@@ -179,7 +169,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_dont_match_regex_number(self):
         '''
-        Testing Password that Don\'t Match Regex (no number characters)
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password that Don\'t Match Regex (no number characters)'
@@ -194,7 +183,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_password_dont_match_regex_specialchar(self):
         '''
-        Testing Password that Don\'t Match Regex (no special characters)
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Password that Don\'t Match Regex (no special characters)'
@@ -211,7 +199,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_fullname(self):
         '''
-        Testing a valid fullname
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Fullname'
@@ -227,7 +214,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_fullname_too_short(self):
         '''
-        Testing a too short fullname
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Fullname Too Short'
@@ -243,7 +229,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_fullname_too_long(self):
         '''
-        Testing a too long fullname
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Fullname Too Long'
@@ -259,7 +244,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_fullname_not_str(self):
         '''
-        Testing a fullname that is not a string
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Fullname Not String'
@@ -275,7 +259,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_fullname_empty(self):
         '''
-        Testing an empty fullname
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Fullname Empty'
@@ -290,7 +273,6 @@ class TestModelUserModel(unittest.TestCase):
     
     def test_validate_fullname_none(self):
         '''
-        Testing a fullname that is None
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Fullname None'
@@ -305,7 +287,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_email_correct(self):
         '''
-        Testing a valid email
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Email Correct'
@@ -320,7 +301,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_email_invalid(self):
         '''
-        Testing an invalid email
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Email Invalid'
@@ -335,7 +315,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_email_none(self):
         '''
-        Testing an email that is None
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Email None'
@@ -350,7 +329,6 @@ class TestModelUserModel(unittest.TestCase):
 
     def test_validate_email_not_str(self):
         '''
-        Testing an email that is not a string
         '''
         test_class = 'Model UserModel'
         test_name = 'Validate Email Not String'

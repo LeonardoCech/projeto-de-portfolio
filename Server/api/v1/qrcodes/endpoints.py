@@ -17,7 +17,6 @@ from firebase_admin import firestore
 from controller.firebase import check_user_exists
 from controller.token import validate_token
 from controller.utils import build_oauth_uri
-from model.constants import ENV, PROJECT_ID
 
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='api/v1/sessions/me')
@@ -26,16 +25,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl='api/v1/sessions/me')
 @router.get('/me')
 async def get_qr_code_me_v1(token: Annotated[str, Depends(oauth2_scheme)], response: Response):
     '''
-    Generate a QR code for the user's MFA configuration.
-
-    :param email: The email of the user.
-    :type email: EmailStr
-    :param response: The response object to return the QR code image.
-    :type response: Response
-    :return: The response object with the QR code image.
-    :rtype: Response
     '''
-    stts_code, detail, data = validate_token(token, check_mfa_auth=(ENV == 'production'))
+    stts_code, detail, data = validate_token(token)
 
     if stts_code == status.HTTP_200_OK:
 
@@ -89,7 +80,7 @@ async def get_qr_code_me_v1(token: Annotated[str, Depends(oauth2_scheme)], respo
         img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
 
         # Load the logo image
-        logo = Image.open("src/images/bnx-logo.png")
+        logo = Image.open("src/images/minhas-financas-logo.png")
 
         # Calculate logo size
         logo_size = 250  # Ajuste conforme necessário
@@ -133,14 +124,6 @@ async def get_qr_code_me_v1(token: Annotated[str, Depends(oauth2_scheme)], respo
 @router.get('/{email}/open')
 async def get_qr_code_open_v1(email: EmailStr, response: Response):
     '''
-    Generate a QR code for the user's MFA configuration.
-
-    :param email: The email of the user.
-    :type email: EmailStr
-    :param response: The response object to return the QR code image.
-    :type response: Response
-    :return: The response object with the QR code image.
-    :rtype: Response
     '''
 
     if check_user_exists(email):
@@ -201,7 +184,7 @@ async def get_qr_code_open_v1(email: EmailStr, response: Response):
     img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
 
     # Load the logo image
-    logo = Image.open("src/images/bnx-logo.png")
+    logo = Image.open("src/images/minhas-financas-logo.png")
 
     # Calculate logo size
     logo_size = 250  # Ajuste conforme necessário

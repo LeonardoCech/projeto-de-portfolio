@@ -4,37 +4,38 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-PORT = 7000
+PORT = 7001
 
 ENV = os.getenv('ENV')
 
 PROJECT_ID = 'minhas-financas-tcc'
 
 ALLOWED_ORIGINS = [
-    'http://localhost:3000'
+    'http://localhost:3001',
+    'http://localhost:3002'
 ]
 
 IDENTITY_TOOLKIT_URL = 'https://identitytoolkit.googleapis.com/v1'
 
-MAILGUN_API_KEY = os.getenv('MAIL-GUN-API-KEY')
+ANYTHING_LLM_HOST = 'http://localhost:3001'
+LLM_SLUG = 'minhas-financas-tcc'
 
+MAILGUN_API_KEY = os.getenv('MAIL-GUN-API-KEY')
 MAILGUN_DOMAIN = 'sandboxa5da889df91e48b0958eb3f7b2453050.mailgun.org'
 MAILGUN_API_URL = f'https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages'
-MAILGUN_FROM = 'Smart Trade Staging <mailgun@staging.we-bronx.io>'
+MAILGUN_FROM = 'Minhas Finanças <mailgun@sandboxa5da889df91e48b0958eb3f7b2453050.mailgun.org>'
 
-
-# Debug option to show logs when run Unit Tests
-# ALWAYS MAKE SURE THIS IS SET TO FALSE BEFORE ANY COMMIT
+# SEMPRE MANTENHA ESTA VARIAVEL FALASE ANTES DE QUALQUER COMMIT
 UNITTESTS_SHOW_LOGS = False
 
 # Algoritmo usado para assinar o token
 TEMP_TOKEN_ALGORITHM = 'HS384'
 TOKEN_ALGORITHM = 'HS256'
 
-# HMAC-based One-Time Password (HOTP) time-to-live is 10 minutes
+# Senha única baseada em HMAC (Hash-based Message Authentication Code)
 HOTP_TTL = 600
 
-# Token Expiration Time is used for signing the JWT token in seconds
+# Segundos de expiração do tokem usado para assinar o JWT
 TOKEN_EXPIRATION_TIME = 60 * 60
 
 # Firebase User Fullname
@@ -56,3 +57,10 @@ USER_MODEL_EMAIL_REGEX = '^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a
 IPINFO_TOKEN = os.getenv('IPINFO-TOKEN')
 
 TOKEN_SECRET_KEY = os.getenv('TOKEN-SECRET-KEY')
+
+FIREBASE_WEB_API_KEY = os.getenv('FIREBASE-WEB-API-KEY')
+
+ANYTHING_LLM_TOKEN = os.getenv('ANYTHING-LLM-TOKEN')
+
+PLUGGY_CLIENT_ID = os.getenv('PLUGGY-CLIENT-ID')
+PLUGGY_CLIENT_SECRET = os.getenv('PLUGGY-CLIENT-SECRET')

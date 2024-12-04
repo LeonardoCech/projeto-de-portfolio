@@ -33,20 +33,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl='api/v1/sessions/me/mfa')
 @router.delete('/me')
 def delete_sessions_me_v1(token: Annotated[str, Depends(oauth2_scheme)], response: Response):
     '''
-        Handles the DELETE request to /users/me/sessions endpoint.
-    Invalidates the JWT.
-
-    TODO(Developer): Add validation to don't validate users that are enabled\n
-    TODO(Developer): Add validation to don't validate users that have email address verified\n
-    TODO(Developer): Add erros examples on Swagger
-
-    #### Tests:
-    ./tests/api/v1/sessions/me/test_api_delete_users_me_sessions.py
-
-    #### Args:
-    - **token (str)**: The JWT token, it's taken from the 'Authorization' header.
-        '''
-    stts_code, detail, _ = validate_token(token, check_mfa_auth=(ENV == 'production'))
+    '''
+    stts_code, detail, _ = validate_token(token)
 
     if stts_code == status.HTTP_200_OK:
         refresh_success, e_type, token = refresh_access_token(
@@ -79,19 +67,6 @@ def delete_sessions_me_v1(token: Annotated[str, Depends(oauth2_scheme)], respons
 @router.post('/me')
 def post_sessions_me_v1(form_data: Annotated[SessionPostForm, Depends()], request: Request, response: Response):
     '''
-    Generates a valid JWT Token for a user.
-    Updates the user metadata to set the last login date.
-
-    TODO(Developer): Add possibilities to signin with other priveders (Apple, Google etc.)\n
-    TODO(Developer): Add validation to don't validate users that are enabled\n
-    TODO(Developer): Add validation to don't validate users that have email address verified\n
-    TODO(Developer): Add erros examples on Swagger
-
-    #### Tests:
-    ./tests/api/v1/sessions/me/test_api_post_users_me_sessions.py
-
-    #### Args:
-    - **form_data (SessionPostForm)**: The user credentials to be validated.
     '''
 
     try:
@@ -217,29 +192,8 @@ def post_sessions_me_v1(form_data: Annotated[SessionPostForm, Depends()], reques
 
 @router.get('/me/mfa')
 async def get_sessions_me_mfa_v1(token: Annotated[str, Depends(oauth2_scheme)],
-                                 response: Response, oauthmfa: Annotated[str | None, Header()] = None, language: Annotated[str | None, Header()] = 'en-US', mfa_type: MfaTypes = MfaTypes.totp):
+                                 response: Response, oauthmfa: Annotated[str | None, Header()] = None, language: Annotated[str | None, Header()] = 'pt-BR', mfa_type: MfaTypes = MfaTypes.totp):
     '''
-    Validate the MFA secret for the authenticated user.
-
-    Parameters:
-    - token: The authentication token for the user. (str)
-    - form_data: The form data containing the MFA check request.
-    - response: The HTTP response object. (Response)
-
-    Returns:
-    - An HTTP redirect response with the appropriate status code, or
-    - An HTTP exception with the appropriate status code and detail message.
-
-    Raises:
-    - FirebaseError: If there is an error with the Firebase API.
-
-    Note:
-    - This function assumes that the user is authenticated.
-    - The MFA secret is retrieved from the Firestore database.
-    - The MFA code is verified using the user's MFA secret.
-    - If the MFA code is invalid, an HTTP exception is raised.
-    - If the token is invalid or expired, an HTTP exception is raised.
-    - If there is an error with the Firebase API, an HTTP exception is raised.
     '''
 
     stts_code, detail, data = validate_token(token, check_mfa_auth=False, check_ttl=False)
@@ -412,27 +366,6 @@ async def get_sessions_me_mfa_v1(token: Annotated[str, Depends(oauth2_scheme)],
 async def get_sessions_me_mfa_v1(token: Annotated[str, Depends(oauth2_scheme)],
                                  response: Response, mfa_type: MfaTypes, oauthmfa: Annotated[str | None, Header()] = None):
     '''
-    Validate the MFA secret for the unauthenticated user.
-
-    Parameters:
-    - token: The authentication token for the user. (str)
-    - form_data: The form data containing the MFA check request.
-    - response: The HTTP response object. (Response)
-
-    Returns:
-    - An HTTP redirect response with the appropriate status code, or
-    - An HTTP exception with the appropriate status code and detail message.
-
-    Raises:
-    - FirebaseError: If there is an error with the Firebase API.
-
-    Note:
-    - This function assumes that the user is authenticated.
-    - The MFA secret is retrieved from the Firestore database.
-    - The MFA code is verified using the user's MFA secret.
-    - If the MFA code is invalid, an HTTP exception is raised.
-    - If the token is invalid or expired, an HTTP exception is raised.
-    - If there is an error with the Firebase API, an HTTP exception is raised.
     '''
 
     stts_code, detail, data = validate_token(token, check_mfa_auth=False, check_ttl=False)
@@ -571,20 +504,8 @@ def post_sessions_temp_v1(email: EmailStr, request: Request, response: Response)
 @router.get('/me/token')
 def get_sessions_me_token_v1(token: Annotated[str, Depends(oauth2_scheme)], response: Response):
     '''
-    Check if user has a valid token. If token is valid, refreshes it and return a new token.
-    Check if user has validated their email. If they have, update the 'metadata' collection and Token data.
-
-    TODO(Developer): Add validation to don't validate users that are enabled\n
-    TODO(Developer): Add validation to don't validate users that have email address verified\n
-    TODO(Developer): Add erros examples on Swagger
-
-    #### Tests:
-    ./tests/api/v1/users/token/test_api_get_users_me_validate_token.py
-
-    #### Args:
-    - **token (str)**: The JWT token, it's taken from the 'Authorization' header.
     '''
-    stts_code, detail, data = validate_token(token, check_mfa_auth=(ENV == 'production'))
+    stts_code, detail, data = validate_token(token)
 
     if stts_code == status.HTTP_200_OK:
 

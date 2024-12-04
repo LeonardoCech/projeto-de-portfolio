@@ -1076,7 +1076,7 @@ wheels = [
 
 [[package]]
 name = "server"
-version = "0.1.0"
+version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fabric" },
@@ -1093,6 +1093,7 @@ dependencies = [
     { name = "python-multipart" },
     { name = "pytz" },
     { name = "qrcode" },
+    { name = "requests" },
     { name = "toml" },
     { name = "uvicorn" },
 ]
@@ -1113,6 +1114,7 @@ requires-dist = [
     { name = "python-multipart", specifier = ">=0.0.19" },
     { name = "pytz", specifier = ">=2024.2" },
     { name = "qrcode", specifier = ">=8.0" },
+    { name = "requests", specifier = ">=2.32.3" },
     { name = "toml", specifier = ">=0.10.2" },
     { name = "uvicorn", specifier = ">=0.32.1" },
 ]

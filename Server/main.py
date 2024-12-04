@@ -15,6 +15,8 @@ from firebase_admin import credentials
 
 # Pacotes internos
 from api.v1.emails.endpoints import router as api_v1_emails_router
+from api.v1.insights.endpoints import router as api_v1_insights_router
+from api.v1.pluggy.endpoints import router as api_v1_pluggy_router
 from api.v1.qrcodes.endpoints import router as api_v1_qrcodes_router
 from api.v1.server.endpoints import router as api_v1_server_router
 from api.v1.sessions.endpoints import router as api_v1_sessions_router
@@ -42,15 +44,32 @@ if __name__ == '__main__':
     )
 
     app.include_router(api_v1_emails_router,
-                       prefix='/api/v1/emails', tags=['Emails'])
+                       prefix='/api/v1/emails',
+                       tags=['Emails'])
+
+    app.include_router(api_v1_insights_router,
+                       prefix='/api/v1/insights',
+                       tags=['Insights'])
+
+    app.include_router(api_v1_pluggy_router,
+                       prefix='/api/v1/pluggy',
+                       tags=['Pluggy'])
+
     app.include_router(api_v1_qrcodes_router,
-                       prefix='/api/v1/qr-codes', tags=['QR Codes'])
+                       prefix='/api/v1/qr-codes',
+                       tags=['QR Codes'])
+
     app.include_router(api_v1_server_router,
-                       prefix='/api/v1/server', tags=['Server'])
+                       prefix='/api/v1/server',
+                       tags=['Server'])
+
     app.include_router(api_v1_sessions_router,
-                       prefix='/api/v1/sessions', tags=['Sessions'])
+                       prefix='/api/v1/sessions',
+                       tags=['Sessions'])
+
     app.include_router(api_v1_users_router,
-                       prefix='/api/v1/users', tags=['Users'])
+                       prefix='/api/v1/users',
+                       tags=['Users'])
 
     app.add_middleware(
         CORSMiddleware,

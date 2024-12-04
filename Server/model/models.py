@@ -1,16 +1,11 @@
 import re
 from time import time
-from pydantic import BaseModel, Field, SecretStr, EmailStr, field_serializer
+from pydantic import BaseModel, SecretStr, EmailStr, field_serializer
 from fastapi import Form
 from enum import Enum
 from typing_extensions import Annotated, Optional
 
 from model.constants import *
-
-
-class AllocationTypes(Enum):
-    balance = 'balance'
-    percentage = 'percentage'
 
 
 class Services(Enum):
@@ -30,25 +25,6 @@ class Roles(Enum):
     admin = 'ADMIN'
     basic = 'BASIC'
     free = 'FREE'
-
-
-class NewsPeriods(Enum):
-
-    day = 'day'
-    week = 'week'
-    month = 'month'
-
-
-class PresetModel(BaseModel):
-
-    id: str
-    type: str
-
-    def model_dump(self):
-        return {
-            'id': self.id,
-            'type': self.type
-        }
 
 
 class UserFirebase:
@@ -189,126 +165,6 @@ class UserSettingsModel(BaseModel):
     fullname: Optional[str] = None
 
 
-class SymbolAllocationModel(BaseModel):
-
-    '''
-    Symbol allocation model.
-
-    `symbol`: Cryptocurrency symbol
-    `type`: defines how to allocate balance to operate
-    `allocation`: value to operate with
-    `has_enough`: if False, operate with available balance, even if balance is less than allocation
-    '''
-
-    symbol: str
-    type: AllocationTypes
-    allocation: float
-    has_enough: bool = False
-
-
-    def model_dump(self):
-        return {
-            'symbol': self.symbol,
-            'type': self.type.value,
-            'allocation': self.allocation,
-            'has_enough': self.has_enough
-        }
-
-
-class SymbolAllocationLimitedModel(BaseModel):
-
-    '''
-    Symbol allocation limited model.
-
-    `type`: defines how to allocate balance to operate
-    `allocation`: value to operate with
-    `has_enough`: if False, operate with available balance, even if balance is less than allocation
-    '''
-
-    type: AllocationTypes
-    allocation: float
-    has_enough: bool = False
-
-
-    def model_dump(self):
-        return {
-            'type': self.type.value,
-            'allocation': self.allocation,
-            'has_enough': self.has_enough
-        }
-
-
-class AtsPairPatchForm(BaseModel):
-
-    pair_id: int
-    enabled: Optional[bool] = False
-    create_order: Optional[bool] = False
-    base: Optional[SymbolAllocationLimitedModel] = None
-    quote: Optional[SymbolAllocationLimitedModel] = None
-
-
-    def model_dump(self):
-        return {
-            'pair_id': self.pair_id,
-            'enabled': self.enabled,
-            'base': self.base.model_dump() if self.base is not None else None,
-            'quote': self.quote.model_dump() if self.quote is not None else None
-        }
-
-
-class AtsPairPostForm(BaseModel):
-
-    exchange_slug: str
-    base: SymbolAllocationModel
-    quote: SymbolAllocationModel
-    preset: PresetModel
-    timeframe: str
-
-    def model_dump(self):
-        return {
-            'exchange_slug': self.exchange_slug,
-            'base': self.base.model_dump(),
-            'quote': self.quote.model_dump(),
-            'preset': self.preset.model_dump(),
-            'timeframe': self.timeframe
-        }
-
-
-class ExchangeOHLCVQueryPostForm:
-    def __init__(
-        self,
-        *,
-        symbol: Annotated[str, Form()] = 'BTC/USDT',
-        timeframe: Annotated[Optional[str], Form()] = '1h',
-        limit: Annotated[Optional[int], Form()] = 100,
-        since: Annotated[Optional[int], Form()] = round((time() - 3600 * 24) * 1000),
-        until: Annotated[Optional[int], Form()] = None,
-        list_of_dict: Annotated[Optional[bool], Form()] = True
-    ):
-        """
-        Initializes a new instance of the class.
-
-        Args:
-            symbol (str): The symbol for the instance.
-            timeframe (str): The timeframe for the instance.
-            limit (int): The limit for the instance.
-            since (Optional[int], optional): The since for the instance. Defaults to one day ago.
-            until (Optional[int], optional): The until for the instance.
-            list_of_dict (Optional[bool], optional): True if the result must be a list of dict,
-                False if it must be a list of list. Defaults to True.
-
-        Returns:
-            None
-        """
-
-        self.symbol = symbol
-        self.timeframe = timeframe
-        self.limit = limit
-        self.since = since
-        self.until = until
-        self.list_of_dict = list_of_dict
-
-
 class SessionPostForm:
     def __init__(
         self,
@@ -328,34 +184,6 @@ class SessionPostForm:
         """
 
         self.username = username
-        self.password = password
-
-
-class ExchangeConnectionsPostForm:
-    def __init__(
-        self,
-        *,
-        exchange_slug: Annotated[str, Form()],
-        api_key: Annotated[SecretStr, Form()],
-        secret: Annotated[SecretStr, Form()],
-        password: Annotated[Optional[SecretStr], Form()] = None
-    ):
-        """
-        Initializes a new instance of the class.
-
-        Args:
-            exchange_slug (str): The exchange name for the instance.
-            api_key (SecretStr): The API key for the instance. Defaults to None.
-            secret (SecretStr): The secret for the instance. Defaults to None.
-            password (Optional[SecretStr], optional): The password for the instance. Defaults to None.
-
-        Returns:
-            None
-        """
-
-        self.exchange_slug = exchange_slug
-        self.api_key = api_key
-        self.secret = secret
         self.password = password
 
 
@@ -403,60 +231,6 @@ class UserCreatePostForm:
         self.fullname = fullname
 
 
-class NewsQueryPeriods(Enum):
-    today = 'today'
-    week = 'week'
-    month = 'month'
-    year = 'year'
-    all = 'all'
-    query = 'query'
-
-
-class ATSModes(Enum):
-
-    default = 'default'
-    simulation = 'simulation'
-
-class ATSTypes(Enum):
-
-    default = 'default'
-    users = 'users'
-
-class ATSReportModes(Enum):
-
-    backtest = 'backtest'
-    default = 'default'
-
-class Sides(Enum):
-
-    buy = 'buy'
-    sell = 'sell'
-
-class ATSSimulationBalancePostForm(BaseModel):
-
-    value: float
-    currency: str = 'USDT'
-
-    def model_dump(self):
-        return {
-            'value': self.value,
-            'currency': self.currency
-        }
-    
-
-class PortfolioPostForm(BaseModel):
-
-    assets: list[str]
-
-
-class PortfolioAssetKind(Enum):
-
-    available = 'available'
-    monitored = 'monitored'
-
-
-class WaitlistPostForm(BaseModel):
-
     email: EmailStr
     hasExchangeAccount: bool
     selectedProfile: str
@@ -471,3 +245,8 @@ class WaitlistPostForm(BaseModel):
             'hasUsedBot': self.hasUsedBot,
             'userExchanges': self.userExchanges
         }
+    
+
+class InsightModel(BaseModel):
+
+    message: str

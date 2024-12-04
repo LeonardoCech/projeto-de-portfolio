@@ -4,7 +4,6 @@ from model.constants import IPINFO_TOKEN
 
 def get_ipinfo(ip):
     '''
-    Get IP information from ip-api.com
     '''
 
     try:

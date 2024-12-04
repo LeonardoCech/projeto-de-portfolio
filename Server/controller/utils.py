@@ -46,3 +46,9 @@ def round_timestamp(ts):
 
     return rounded_ts
 
+
+def thread_slug_from_email(email: str):
+    email = email \
+        .replace('@', '-at-') \
+        .replace('.', '-dot-')
+    return email

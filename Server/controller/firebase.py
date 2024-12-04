@@ -5,11 +5,7 @@ import requests
 
 from firebase_admin import auth
 
-from model.constants import IDENTITY_TOOLKIT_URL
-
-
-FIREBASE_API_KEY = json.loads(
-        open('credentials/minhas-financas-tcc.json').read())
+from model.constants import IDENTITY_TOOLKIT_URL, FIREBASE_WEB_API_KEY
 
 
 def check_user_exists(email):
@@ -30,7 +26,7 @@ def mask_string(string):
 def sign_in_with_password(username, password, return_secure_token=False):
 
     # Firebase API URL for password authentication
-    url = f'{IDENTITY_TOOLKIT_URL}/accounts:signInWithPassword?key={FIREBASE_API_KEY}'
+    url = f'{IDENTITY_TOOLKIT_URL}/accounts:signInWithPassword?key={FIREBASE_WEB_API_KEY}'
 
     # Request body JSON
     data = {

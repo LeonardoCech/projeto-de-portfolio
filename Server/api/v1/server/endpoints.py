@@ -15,35 +15,8 @@ router = APIRouter()
 @router.get('/ping')
 def get_server_ping_v1(request: Request, response: Response):
     '''
-    A function that handles the GET request to the '/ping' endpoint.
-
-    TODO(Developer): Add validation to don't validate users that are enabled
-    TODO(Developer): Add validation to don't validate users that have email address verified
-    TODO(Developer): Add erros examples on Swagger
-
-    #### Tests:
-    ./tests/api/v1/server/ping/test_api_get_server_ping.py
-s
-    #### Args:
-    - **token (str)**: The JWT token, it's taken from the 'Authorization' header.
     '''
     try:
-        # db = firestore.client()
-        # all_documents = db.collection(METADATA_COLLECTION).get()
-
-        # for document in all_documents:
-        #         print(f'{document.id} => DELETED')
-        #         auth.delete_user(document.id)
-        #         db.collection(METADATA_COLLECTION).document(document.id).delete()
-
-        # all_documents = db.collection(OAUTH_COLLECTION).get()
-
-        # for document in all_documents:
-        #         print(f'{document.id} => DELETED')
-        #         db.collection(METADATA_COLLECTION).document(document.id).delete()
-
-        # print(db.collection(OAUTH_COLLECTION).document('pytest@we-bronx.io').get().to_dict())
-
         return JSONResponse(content={
             'message': 'pong',
             'ip': get_user_ip(request)
@@ -62,20 +35,7 @@ s
 @router.get('/constants')
 def get_server_constants_v1(response: Response):
     '''
-        Endpoint to get constants.
-    Retrieve only constants that can be used in the client side.
-    WARNING: DO NOT RETRIEVE SENSITIVE CONSTANTS, LIKE HASHS OR API KEYS.
-
-    TODO(Developer): Add validation to don't validate users that are enabled
-    TODO(Developer): Add validation to don't validate users that have email address verified
-    TODO(Developer): Add erros examples on Swagger
-
-    #### Tests:
-    ./tests/api/v1/server/constants/test_api_get_server_constants.py
-
-    #### Args:
-    - None
-        '''
+    '''
     try:
         return JSONResponse(content={
             'UserModel': {
