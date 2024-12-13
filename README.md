@@ -23,7 +23,7 @@ O **Minhas Finanças** foi desenvolvido para facilitar o entendimento de gastos 
 
 ## 🛠️ Arquitetura do Projeto
 
-![Diagrama](./arquitetura.png)
+![Diagrama](./img/arquitetura.png)
 
 ### **🧩 Estrutura Geral**
 
@@ -123,17 +123,17 @@ PORT=3002
 O download do Anything LLM está disponível em [https://anythingllm.com/](https://anythingllm.com/)
 
 * Após o download, configure o provedor de IA (é necessário possuir uma chave de API da OpenAI):
-![Config IA 2](./config-anything-llm-2.png)
+![Config IA 2](./img/config-anything-llm-2.png)
 
 * Agora, configure um workspace com o nome "Minhas Finanças TCC", isso fará com que o identificador gerado seja "minhas-finanças-tcc":
-![Config IA 0](./config-anything-llm-0.png)
+![Config IA 0](./img/config-anything-llm-0.png)
 
 * Configure um prompt base para utilizar a skill RAG do ChatGPT:
-![Config IA 1](./config-anything-llm-1.png)
+![Config IA 1](./img/config-anything-llm-1.png)
 
 * Na lateral esquerda, onde aparece o nome do workspace, clique no ícone de upload para enviar os arquivos de consulta:
-![Config IA 3](./config-anything-llm-3.png)
+![Config IA 3](./img/config-anything-llm-3.png)
 
 * Por fim, gere uma chave de API, que será utilizada para consumir o Anything LLM (Clicando em "Leia a documentação da API", é possível acessar a documentação Swagger da API):
-![Config IA 4](./config-anything-llm-4.png)
+![Config IA 4](./img/config-anything-llm-4.png)
 ---
