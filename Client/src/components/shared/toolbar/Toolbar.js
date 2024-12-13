@@ -265,6 +265,9 @@ const Toolbar = (props) => {
     const signOutUser = async () => {
         const result = await sessionsMeDelete();
 
+        localStorage.clear();
+        sessionStorage.clear();
+
         if (result.isSuccess) navigate('/sign-in');
         else navigate('/unauthorized');
     };

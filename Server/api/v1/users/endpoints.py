@@ -319,6 +319,7 @@ def delete_users_me_v1(token: Annotated[str, Depends(oauth2_scheme)], response: 
         )
 
         db.collection('users').document(user.uid).delete()
+        db.collection('oauth').document(user.email).delete()
 
         auth.delete_user(user.uid)
 
