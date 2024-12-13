@@ -89,6 +89,9 @@
     "click-if-not-works": "Clique aqui se não funcionar",
     "email-not-sent": "O e-mail não pôde ser enviado. Por favor, aguarde um momento e tente novamente.",
     "go-back": "Você será redirecionado para a última página acessada em alguns segundos.",
+    "go-back-to": {
+        "sign-in": "Voltar para a página de entrada"
+    },
     "go-to-wallet": "Gerenciar portfólio",
     "insert-email-mfa": "Insira o código de verificação enviado para ",
     "insert-app-mfa": "Insira o código de verificação presente no seu aplicativo de autenticação:",
