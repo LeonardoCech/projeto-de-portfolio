@@ -260,13 +260,6 @@ def api_v1_user_send_email():
     }
 
 
-@pytest.fixture
-def api_v1_user_send_phone():
-    return {
-        'route': f'/api/v1/user/{ValueStorage.base_email}/send/phone',
-        'headers': get_authorization_header()
-    }
-
 # Hooks ========================================================================
 
 

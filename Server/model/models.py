@@ -10,8 +10,8 @@ from model.constants import *
 
 class Services(Enum):
 
-    users_service = 'https://users.we-bronx.io'
-    smart_trade = 'https://app.we-bronx.io'
+    users_service = 'https://users.minhas-financas-tcc.io'
+    smart_trade = 'https://app.minhas-financas-tcc.io'
 
 
 class MfaTypes(Enum):

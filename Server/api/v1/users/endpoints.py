@@ -14,9 +14,11 @@ from firebase_admin import auth, exceptions, firestore
 # Own packages
 from controller.otp import generate_hotp, get_current_timestamp
 from controller.token import validate_token, get_token_iat, create_access_token, get_token_exp
-from controller.utils import get_user_ip
-from model.constants import ENV, USER_MODEL_EMAIL_VERIFIED_DEFAULT, TEMP_TOKEN_ALGORITHM
+from controller.utils import get_user_ip, thread_slug_from_email
+from model.constants import ANYTHING_LLM_HOST, ANYTHING_LLM_TOKEN, USER_MODEL_EMAIL_VERIFIED_DEFAULT, TEMP_TOKEN_ALGORITHM
 from model.models import UserCredentials, UserModel, UserSettingsModel, UserCreatePostForm, Roles, Services
+
+from requests import post, delete
 
 
 router = APIRouter()
@@ -230,6 +232,18 @@ def post_users_me_v1(form_data: Annotated[UserCreatePostForm, Depends()], reques
                     'message': 'User could not be created'
                 }
             )
+
+        post(
+            f'{ANYTHING_LLM_HOST}/api/v1/workspace/minhas-financas-tcc/thread/new',
+            headers={
+                'Content-Type': 'application/json',
+                'Authorization': f'Bearer {ANYTHING_LLM_TOKEN}'
+            },
+            json={
+                'name': form_data.username,
+                'slug': form_data.username
+            })
+
         now = get_token_iat()
 
         token_data = {
@@ -280,4 +294,39 @@ def post_users_me_v1(form_data: Annotated[UserCreatePostForm, Depends()], reques
                 'message': str(error),
                 'type': type(error).__name__
             }
+        )
+
+
+@router.delete('/me')
+def delete_users_me_v1(token: Annotated[str, Depends(oauth2_scheme)], response: Response):
+    '''
+    '''
+    stts_code, detail, data = validate_token(token)
+
+    print(detail)
+
+    if stts_code == status.HTTP_200_OK:
+        db = firestore.client()
+        decoded_token = data['decoded_token']
+        user = auth.get_user_by_email(decoded_token['sub'])
+
+        delete(
+            ANYTHING_LLM_HOST + '/api/v1/workspace/minhas-financas-tcc/thread/' +
+            thread_slug_from_email(decoded_token["sub"]),
+            headers={
+                'Authorization': f'Bearer {ANYTHING_LLM_TOKEN}'
+            }
+        )
+
+        db.collection('users').document(user.uid).delete()
+
+        auth.delete_user(user.uid)
+
+        return {'message': 'User deleted'}
+
+    else:
+        response.status_code = stts_code
+        return HTTPException(
+            status_code=stts_code,
+            detail=detail
         )

@@ -17,7 +17,7 @@ class TestModelUserModel(unittest.TestCase):
 
     user = UserModel(
         fullname = '',
-        email = 'test@we-bronx.io',
+        email = 'test@minhas-financas.io',
         password = SecretStr(''),
         oauthmfa = False
     )
@@ -291,7 +291,7 @@ class TestModelUserModel(unittest.TestCase):
         test_class = 'Model UserModel'
         test_name = 'Validate Email Correct'
 
-        self.user.email = 'test@we-bronx.io'
+        self.user.email = 'test@minhas-financas-tcc.io'
         result, msg = self.user.validate_email()
         
         if UNITTESTS_SHOW_LOGS:
@@ -305,7 +305,7 @@ class TestModelUserModel(unittest.TestCase):
         test_class = 'Model UserModel'
         test_name = 'Validate Email Invalid'
 
-        self.user.email = 'testwe-bronx'
+        self.user.email = 'testminhas-financas-tcc'
         result, msg = self.user.validate_email()
         
         if UNITTESTS_SHOW_LOGS:

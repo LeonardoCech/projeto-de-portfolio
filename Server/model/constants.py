@@ -11,6 +11,7 @@ ENV = os.getenv('ENV')
 PROJECT_ID = 'minhas-financas-tcc'
 
 ALLOWED_ORIGINS = [
+    '*',
     'http://localhost:3001',
     'http://localhost:3002'
 ]
@@ -60,7 +61,11 @@ TOKEN_SECRET_KEY = os.getenv('TOKEN-SECRET-KEY')
 
 FIREBASE_WEB_API_KEY = os.getenv('FIREBASE-WEB-API-KEY')
 
+ANYTHING_LLM_HOST = os.getenv('ANYTHING-LLM-HOST')
 ANYTHING_LLM_TOKEN = os.getenv('ANYTHING-LLM-TOKEN')
 
 PLUGGY_CLIENT_ID = os.getenv('PLUGGY-CLIENT-ID')
 PLUGGY_CLIENT_SECRET = os.getenv('PLUGGY-CLIENT-SECRET')
+
+PLUGGY_API_URL = 'https://api.pluggy.ai'
+PLUGGY_WEBHOOK_URL = ' https://b840-45-229-202-176.ngrok-free.app/api/v1/webhooks/pluggy'

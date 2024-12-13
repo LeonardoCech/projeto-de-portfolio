@@ -21,6 +21,7 @@ from api.v1.qrcodes.endpoints import router as api_v1_qrcodes_router
 from api.v1.server.endpoints import router as api_v1_server_router
 from api.v1.sessions.endpoints import router as api_v1_sessions_router
 from api.v1.users.endpoints import router as api_v1_users_router
+from api.v1.webhooks.endpoints import router as api_v1_webhooks_router
 
 from controller.utils import get_pyproject_version
 from model.constants import ALLOWED_ORIGINS, PORT
@@ -70,6 +71,10 @@ if __name__ == '__main__':
     app.include_router(api_v1_users_router,
                        prefix='/api/v1/users',
                        tags=['Users'])
+    
+    app.include_router(api_v1_webhooks_router,
+                       prefix='/api/v1/webhooks',
+                       tags=['Webhooks'])
 
     app.add_middleware(
         CORSMiddleware,

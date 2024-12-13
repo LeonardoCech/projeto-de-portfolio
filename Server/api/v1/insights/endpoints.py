@@ -22,10 +22,10 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl='api/v1/sessions/me')
 
 @router.post('/me')
 def patch_insights_me_v1(token: Annotated[str, Depends(oauth2_scheme)],
-                        form_data: InsightModel,
-                        response: Response,
-                        mode: str = None
-                        ) -> dict:
+                         form_data: InsightModel,
+                         response: Response,
+                         mode: str = None
+                         ) -> dict:
     '''
     '''
     stts_code, detail, data = validate_token(token, check_mfa_auth=False)
@@ -48,18 +48,25 @@ def patch_insights_me_v1(token: Annotated[str, Depends(oauth2_scheme)],
                 'mode': mode,
                 'message': form_data.message
             })
+        
+        result = response.json()
 
-        if 'textResponse' not in response.json():
+        if 'textResponse' not in result:
             response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
             return HTTPException(
                 status_code=response.status_code,
                 detail=''
             )
 
-        result = response.json()['textResponse']
+        insights = result['textResponse']
+        sources = [source['title'] for source in result['sources']]
+        sources = list(set(sources))
 
         if response.status_code == 200:
-            return JSONResponse(content={'insight': result})
+            return JSONResponse(content={
+                'insight': insights,
+                'sources': sources
+            })
 
         else:
             response.status_code = response.status_code

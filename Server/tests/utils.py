@@ -14,7 +14,7 @@ Test Class: {test_class}
 def delete_test_user():
 
     try:
-        user = auth.get_user_by_email('pytest.temp@we-bronx.io')
+        user = auth.get_user_by_email('pytest.temp@minhas-financas-tcc.io')
     
         if user:
             db = firestore.client()
