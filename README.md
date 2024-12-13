@@ -42,13 +42,7 @@ O **Minhas Finanças** foi desenvolvido para facilitar o entendimento de gastos 
 
 ### ❔ Como o Minhas Finanças Recomenda Dicas Financeiras?
 
-
-6. **Geração da Recomendação**:  
-   - A IA gera a recomendação do fertilizante apropriado.  
-   - Um novo evento é inserido na tabela `tb_events` com a recomendação gerada.
-
-7. **Visualização na Interface**:  
-   - A recomendação é exibida na tela de eventos da aplicação web para que o usuário possa agir de acordo com a necessidade do solo.
+Assim que o usuário adiciona uma conexão bancária, o Client envia um JSON contendo o histórico de transações para o Anything LLM, que processa as transações e fornece dicas financeiras, consultando os materiais educativos e os dados de credibilidade.
 
 ---
 
