@@ -303,8 +303,6 @@ def delete_users_me_v1(token: Annotated[str, Depends(oauth2_scheme)], response: 
     '''
     stts_code, detail, data = validate_token(token)
 
-    print(detail)
-
     if stts_code == status.HTTP_200_OK:
         db = firestore.client()
         decoded_token = data['decoded_token']
