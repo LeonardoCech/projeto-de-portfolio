@@ -36,68 +36,14 @@ body.dark .badge {
     color: var(--color-primary) !important;
 }
 
-.badge.buy {
-    background: var(--trend-up-bg-color) !important;
-    border-color: var(--trend-up-color);
-    color: var(--trend-up-color) !important;
-}
-
-.badge.sell {
-    background: var(--trend-down-bg-color) !important;
-    border-color: var(--trend-down-color);
-    color: var(--trend-down-color) !important;
-}
-
-.badge.admin {
-    background: rgb(255, 85, 85);
-    border-color: red;
-    color: var(--ghost-white) !important;
-    font-size: x-small !important;
-}
-
-.badge:is(.relevant, .non-relevant) {
-    border-radius: 10rem;
-    font-size: x-small;
-    font-weight: bold;
-    padding: var(--padding-quinarynary) var(--padding-primary);
-}
-
-.badge.relevant {
-    border-color: var(--sea-green);
-
-    & span {
-        color: var(--sea-green);
-    }
-}
-
-.badge.non-relevant {
-    border-color: var(--platinum);
-
-    & span {
-        color: var(--platinum);
-    }
-}
-
-.badge.success {
-    border-color: var(--mint);
-
+.badge.info {
+    border-color: var(--united-nations-blue);
+    color: var(--united-nations-blue) !important;
+    font-weight: 500;
+    
     & .icon-svg {
-        color: var(--mint);
-    }
-}
-
-.badge.warning {
-    border-color: var(--gold);
-
-    & .icon-svg {
-        color: var(--gold);
-    }
-}
-
-.badge.error {
-    border-color: var(--indian-red);
-
-    & .icon-svg {
-        color: var(--indian-red);
+        color: var(--united-nations-blue) !important;
+        height: 1.5rem;
+        width: 5rem;
     }
 }

@@ -1,7 +1,11 @@
 
 import { emailsPost } from 'apis/endpoints/emailsPost'; export { emailsPost };
 import { insightMePost } from 'apis/endpoints/insightMePost'; export { insightMePost };
+import { pluggyAccountsGet } from 'apis/endpoints/pluggyAccountsGet'; export { pluggyAccountsGet };
 import { pluggyConnectorsGet } from 'apis/endpoints/pluggyConnectorsGet'; export { pluggyConnectorsGet };
+import { pluggyItemDelete } from 'apis/endpoints/pluggyItemDelete'; export { pluggyItemDelete };
+import { pluggyItemPost } from 'apis/endpoints/pluggyItemPost'; export { pluggyItemPost };
+import { pluggyInvestmentsGet } from 'apis/endpoints/pluggyInvestimentsGet'; export { pluggyInvestmentsGet };
 import { qrCodesMeGetEndpoint, qrCodesMeGet } from 'apis/endpoints/qrCodesMeGet'; export { qrCodesMeGetEndpoint, qrCodesMeGet };
 import { qrCodesOpenGetEndpoint, qrCodesOpenGet } from 'apis/endpoints/qrCodesOpenGet'; export { qrCodesOpenGetEndpoint, qrCodesOpenGet };
 import { serverConstantsGet } from 'apis/endpoints/serverConstantsGet'; export { serverConstantsGet };
@@ -15,3 +19,4 @@ import { usersMeGet } from 'apis/endpoints/usersMeGet'; export { usersMeGet };
 import { usersMePatch } from 'apis/endpoints/usersMePatch'; export { usersMePatch };
 import { usersMePost } from 'apis/endpoints/usersMePost'; export { usersMePost };
 import { usersMeCredentialsPatch } from 'apis/endpoints/usersMeCredentialsPatch'; export { usersMeCredentialsPatch };
+import { usersMeDelete } from 'apis/endpoints/usersMeDelete'; export { usersMeDelete };

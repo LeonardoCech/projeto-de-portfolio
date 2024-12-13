@@ -13,7 +13,9 @@
         width: 30%;
     }
 
-    & p, .ant-select-selection-item, .ant-select-arrow {
+    & p,
+    .ant-select-selection-item,
+    .ant-select-arrow {
         color: var(--white) !important;
     }
 
@@ -23,6 +25,11 @@
 
     & .input-checkbox-container .checkmark:after {
         border-color: var(--onyx);
+    }
+
+    & .react-loading-skeleton {
+        --base-color: unset !important;
+        --highlight-color: var(--silver) !important;
     }
 }
 

@@ -144,7 +144,7 @@
   }
 
   & #minhas-financas-logo {
-      animation: sign-in-logo-in 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s forwards;
+      animation: sign-in-logo-in .5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
       border-radius: unset;
       left: 14rem;
       position: absolute;
@@ -161,7 +161,7 @@
       right: 16rem;
       width: 26rem;
       opacity: 0;
-      animation: form-slide-in 1s ease-out 3s forwards;
+      animation: form-slide-in 1s ease-out 1s forwards;
       z-index: 2;
   }
 
@@ -203,7 +203,7 @@
   }
 
   .quick-settings {
-      animation: sign-in-panel-in 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: sign-in-panel-in .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       z-index: 3;
       padding-bottom: .5rem;
       position: absolute;

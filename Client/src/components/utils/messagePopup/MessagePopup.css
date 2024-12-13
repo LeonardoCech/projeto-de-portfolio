@@ -85,7 +85,7 @@
 }
 
 .message-popup-container #time-to-close-bar {
-    animation: barAnimation 3s linear;
+    animation: barAnimation 1s linear;
     border-radius: var(--border-radius);
     bottom: 0;
     height: .15rem;

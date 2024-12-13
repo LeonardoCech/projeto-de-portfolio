@@ -56,8 +56,20 @@
     height: 33.33% !important;
 }
 
+.h-10 {
+    height: 41.66% !important;
+}
+
 .h-12 {
     height: 50% !important;
+}
+
+.h-14 {
+    height: 60% !important;
+}
+
+.h-16 {
+    height: 66.66% !important;
 }
 
 .h-18 {

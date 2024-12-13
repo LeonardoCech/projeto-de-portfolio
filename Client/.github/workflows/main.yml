@@ -1,0 +1,60 @@
+name: Build and Push to Production
+
+on:
+  push:
+    tags:
+      - '**'
+    paths:
+      - 'package.json'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker:20.10.16-dind
+        options: --privileged
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build the application
+        run: |
+          npm run build
+
+      - name: Authenticate with GCP
+        env:
+          GOOGLE_CREDENTIALS_PRODUCTION: ${{ secrets.GOOGLE_CREDENTIALS_PRODUCTION }}
+        run: |
+          mkdir -p /tmp && echo "$GOOGLE_CREDENTIALS_PRODUCTION" > /tmp/gcloud-key.json
+          gcloud auth activate-service-account --key-file=/tmp/gcloud-key.json
+          gcloud config set project ${{ secrets.PROJECT_ID }}
+          gcloud --quiet auth configure-docker ${{ secrets.LOCATION }}-docker.pkg.dev
+
+      - name: Build and push Docker image
+        env:
+          DOCKER_BUILDKIT: 0
+          APP_ENV: production
+          LOCATION: ${{ secrets.LOCATION }}
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          REPOSITORY: ${{ secrets.REPOSITORY }}
+          IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
+        run: |
+          docker build --build-arg ENV=$APP_ENV \
+            -t $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:latest \
+            -t $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:2 \
+            -t $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:2-${{ github.sha }} .
+
+          docker push $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:latest
+          docker push $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:2
+          docker push $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:2-${{ github.sha }}

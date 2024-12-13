@@ -7,42 +7,41 @@ import { useTranslation } from 'react-i18next';
 
 // Ant Design Components
 import { Modal } from 'antd';
-import { CloseOutlined } from '@ant-design/icons';
 
 // Custom Components
-import { Button, Column, Input, Row, Title } from 'components/imports';
+import { Button, Column, Input, Row, Title, Badge } from 'components/imports';
 import { Select } from 'antd';
 
-import { pluggyConnectorsGet } from 'apis/imports';
+import { CloseSvg, InfoSvg } from 'icons/imports';
+
+import { pluggyConnectorsGet, pluggyItemPost } from 'apis/imports';
 
 
-const ConnectAccountModal = ({ open, onClose }) => {
+const ConnectAccountModal = ({ open, onClose, setNewConnection }) => {
 
     const { t } = useTranslation();
 
     const [availableConnectorsList, setAvailableConnectorsList] = useState([]);
-
     const [selectedConnector, setSelectedConnector] = useState({});
-
     const [confirmButtonState, setConfirmButtonState] = useState('disabled');
-
     const [credentialsValues, setCredentialsValues] = useState({});
 
-    useEffect(() => {
-        getConnectors();
-    }, []);
+
+    useEffect(() => getConnectors(), []);
+
 
     useEffect(() => {
         let invalidValues = Object.values(credentialsValues).filter(credentialsValue => credentialsValue.invalid);
 
-        if (Object.keys(credentialsValues).length > 0 &&
-            invalidValues.length === 0) {
+        if (selectedConnector?.credentials?.length == 0 ||
+            (Object.keys(credentialsValues).length > 0 &&
+                invalidValues.length === 0)) {
             setConfirmButtonState('enabled');
             return;
         }
         setConfirmButtonState('disabled');
 
-    }, [credentialsValues]);
+    }, [selectedConnector, credentialsValues]);
 
 
     const getConnectors = async () => {
@@ -54,16 +53,13 @@ const ConnectAccountModal = ({ open, onClose }) => {
 
 
     const changeSelectedConnector = (newSelectedConnectorId) => {
-
         const connector = availableConnectorsList.find(connector => connector.id === newSelectedConnectorId);
 
         setSelectedConnector(connector);
     };
 
 
-    const clearForm = () => {
-        setConfirmButtonState('disabled');
-    };
+    const clearForm = () => setConfirmButtonState('disabled');
 
 
     const handleConfirm = async (event) => {
@@ -71,48 +67,20 @@ const ConnectAccountModal = ({ open, onClose }) => {
 
         setConfirmButtonState('loading');
 
-        // try {
-        //     const props = {
-        //         exchangeSlug: selectedExchange,
-        //         apiKey: apiKey,
-        //         secret: secret
-        //     };
+        const { isSuccess } = await pluggyItemPost({ 
+            isDemo: selectedConnector?.isDemo || false,
+            parameters: credentialsValues,
+            connectorId: selectedConnector?.id
+        });
 
-        //     if (exchangesPasswordRequired.includes(selectedExchange))
-        //         props.password = password;
+        setNewConnection(true);
 
-        //     const result = await exchangesConnectionsMePost(props);
+        if (!isSuccess) {
+            setConfirmButtonState('error');
+            return;
+        }
 
-        //     if (result.isSuccess) {
-        //         await fetchExchanges();
-
-        //         setConfirmButtonState('success');
-        //         setPopUpText(t('sucess-exchange-connect'));
-        //         setPopUpLevel('success');
-        //         setPopUpDuration(3000);
-
-        //         onClose();
-
-        //     } else {
-        //         setConfirmButtonState('error');
-        //         setPopUpLevel('error');
-        //         setPopUpDuration(3000);
-
-        //         if (result.status === 403) {
-        //             setPopUpText(t('error-exchange-connect'));
-        //         }
-        //         else {
-        //             setPopUpText(t(`api_codes.default.${result.status}_0`));
-        //         }
-
-        //     }
-        // } catch (error) {
-        //     setPopUpText(t('unexpected-error'));
-        //     setPopUpLevel('error');
-        //     setPopUpDuration(3000);
-        // } finally {
-        //     clearForm();
-        // }
+        setConfirmButtonState('success');
     };
 
 
@@ -174,13 +142,13 @@ const ConnectAccountModal = ({ open, onClose }) => {
             open={open}
             onCancel={handleCancel}
             footer={null}
-            closeIcon={<CloseOutlined />}
+            closeIcon={<CloseSvg className='icon-svg' />}
             centered
         >
             <hr />
 
-            <form name='add-connector' onSubmit={handleConfirm}>
-                <Column g='1'>
+            <form className='fill-width' name='add-connector' onSubmit={handleConfirm}>
+                <Column g='1' fill='width'>
                     <Select
                         id='add-account-select-connector'
                         onChange={changeSelectedConnector}
@@ -190,6 +158,26 @@ const ConnectAccountModal = ({ open, onClose }) => {
                         placeholder={t('select-connector')}
                         optionLabelProp='label'
                     />
+
+                    {selectedConnector?.products &&
+                        <>
+                            <p><b>{t('access-products')}</b></p>
+
+                            <Row fill='width' flex='wrap'>
+                                {selectedConnector.products.map((product, index) => (
+                                    <Badge key={index}>
+                                        {t(product.toLowerCase().replaceAll('_', '-'))}
+                                    </Badge>
+                                ))}
+                            </Row>
+
+                            <Badge variation='info'>
+                                <InfoSvg className='icon-svg' />
+
+                                {t('connection-disclaimer')}
+                            </Badge>
+                        </>
+                    }
 
                     {selectedConnector?.credentials &&
                         selectedConnector.credentials.map((credential, index) => (

@@ -6,10 +6,10 @@ export const currencyFormatter = (v) => {
         v = +v;
 
         if (v == 0)
-            return 0;
+            return '-';
 
         if (v >= 1)
-            return v.toFixed(2);
+            return Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v);
 
         v = v.toFixed(10);
 

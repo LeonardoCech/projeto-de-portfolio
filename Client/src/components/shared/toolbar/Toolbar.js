@@ -32,9 +32,8 @@ import { sessionsMeDelete, usersMeGet } from 'apis/imports';
 import { Button, Column, Row } from 'components/imports';
 
 import './Toolbar.css';
-import { termsOfServiceDoc } from 'constants';
-import { privacyPolicyDoc } from 'constants';
-import { cookiesPolicyDoc } from 'constants';
+
+import { termsOfServiceDoc, privacyPolicyDoc, cookiesPolicyDoc, insightSourcesLinks } from 'constants';
 
 
 const Toolbar = (props) => {
@@ -158,6 +157,48 @@ const Toolbar = (props) => {
 
 
     const actionsMenuItems = [
+        {
+            type: 'group',
+            label: t('educational-materials'),
+            children: [
+                {
+                    key: 'caderno_cidadania_financeira',
+                    label: (
+                        <SwitchableIcon
+                            className='page-link-button'
+                            showText={true}
+                            staticImage={documentSvg}
+                            onToggle={() => window.open(insightSourcesLinks['caderno_cidadania_financeira.pdf'], '_blank')}
+                            text={t('caderno_cidadania_financeira.pdf')}
+                        />
+                    ),
+                },
+                {
+                    key: 'cartilha_de_educacao_financeira',
+                    label: (
+                        <SwitchableIcon
+                            className='page-link-button'
+                            showText={true}
+                            staticImage={documentSvg}
+                            onToggle={() => window.open(insightSourcesLinks['cartilha_de_educacao_financeira.pdf'], '_blank')}
+                            text={t('cartilha_de_educacao_financeira.pdf')}
+                        />
+                    ),
+                },
+                {
+                    key: 'quem_sonha_poupa_ebook',
+                    label: (
+                        <SwitchableIcon
+                            className='page-link-button'
+                            showText={true}
+                            staticImage={documentSvg}
+                            onToggle={() => window.open(insightSourcesLinks['quem_sonha_poupa_ebook.pdf'], '_blank')}
+                            text={t('quem_sonha_poupa_ebook.pdf')}
+                        />
+                    ),
+                },
+            ],
+        },
         {
             type: 'group',
             label: t('corporate'),
@@ -300,7 +341,6 @@ const Toolbar = (props) => {
                         g='0'
                     >
                         <PageLink
-                            beta={true}
                             id='overview-page-link'
                             isSelected={page === 'overview'}
                             route='/overview'
@@ -310,7 +350,6 @@ const Toolbar = (props) => {
                         />
 
                         <PageLink
-                            beta={true}
                             id='settings-page-link'
                             isSelected={page === 'settings'}
                             route='/settings'
@@ -324,54 +363,6 @@ const Toolbar = (props) => {
                 <Column id='user-preferences'
                     className='toolbar'
                 >
-                    <Column id='actions-dd'
-                        className='dropdown'
-                    >
-                        <p className='title'>{t('corporate')}</p>
-
-                        <SwitchableIcon
-                            className='page-link-button'
-                            showText={true}
-                            staticImage={documentSvg}
-                            onToggle={() => window.open('https://www.we-bronx.io/docs/en-US/cookies-policy.pdf', '_blank')}
-                            text={t('cookies.messages.title')}
-                        />
-
-                        <SwitchableIcon
-                            className='page-link-button'
-                            showText={true}
-                            staticImage={documentSvg}
-                            onToggle={() => window.open('https://www.we-bronx.io/docs/en-US/privacy-policy.pdf', '_blank')}
-                            text={t('privacy-policy')}
-                        />
-
-                        <SwitchableIcon
-                            className='page-link-button'
-                            showText={true}
-                            staticImage={documentSvg}
-                            onToggle={() => window.open('https://www.we-bronx.io/docs/en-US/terms-of-service.pdf', '_blank')}
-                            text={t('terms-of-service.p')}
-                        />
-
-                        <p className='title'>{t('action.p')}</p>
-
-                        {/* Restart Tour
-                        <SwitchableIcon
-                            className='page-link-button'
-                            showText={true}
-                            staticImage={questionSvg}
-                            onToggle={() => handleRestartTour()}
-                            text={t('restart-tour')}
-                        />*/}
-                        <SwitchableIcon id='sign-out-btn' /* Sign Out */
-                            className='page-link-button'
-                            onToggle={() => setSignOutModalEnabled(true)}
-                            showText={true}
-                            staticImage={signOutSvg}
-                            text={t('sign.out.v')}
-                        />
-                    </Column>
-
                     <Column g='0'>
                         <Dropdown
                             menu={{

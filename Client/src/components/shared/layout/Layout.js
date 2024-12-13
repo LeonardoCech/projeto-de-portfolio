@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -9,14 +10,14 @@ import packageJson from '../../../../package.json';
 import { useTranslation } from 'react-i18next';
 import i18n from 'locales/i18n';
 
-import { Segmented } from 'antd';
+import { Segmented, Popover } from 'antd';
 
 import {
     Column, Header, MessagePopup, Row, SwitchableIcon,
-    Title, Toolbar, MfaModal
+    Title, Toolbar, MfaModal, Link
 } from 'components/imports';
 
-import { BnxIconLogoSvg, SunSvg, MoonSvg } from 'icons/imports';
+import { BnxIconLogoSvg, SunSvg, MoonSvg, AiSvg, SourceSvg, ShowSvg, HideSvg } from 'icons/imports';
 import { MinhasFinancasExtLogoSvg } from 'images/imports';
 
 import {
@@ -28,6 +29,10 @@ import { pageLoaded } from 'utils/pages';
 import { checkAuthorization } from 'utils/token';
 
 import { sessionsMeMfaGet } from 'apis/imports';
+
+import { insightSourcesLinks } from 'constants';
+
+import Skeleton from 'react-loading-skeleton';
 
 import './Layout.css';
 
@@ -63,8 +68,15 @@ const Layout = (props) => {
 
     const popUp = props.popUp || { level: 'success', text: '', duration: 0 };
 
+    const [loadingInsight, setLoadingInsight] = useState(true);
+
     const moonIcon = <MoonSvg className='icon-svg' />;
     const sunIcon = <SunSvg className='icon-svg' />;
+    const showIcon = <ShowSvg className='icon-svg' />;
+    const hideIcon = <HideSvg className='icon-svg' />;
+
+    const aiIcon = <AiSvg className='icon-svg' />;
+    const sourceIcon = <SourceSvg className='icon-svg' />;
 
     useEffect(() => {
         $(document).scrollTop = 0;
@@ -94,6 +106,12 @@ const Layout = (props) => {
                 props.setIsUserAuthenticated(isUserAuthenticated);
         }
     }, [isUserAuthenticated]);
+
+
+    useEffect(() => {
+        if (props.insight != '')
+            setLoadingInsight(false);
+    }, [props.insight]);
 
 
     const changeLanguage = (newLang = language) => {
@@ -146,6 +164,20 @@ const Layout = (props) => {
     };
 
 
+    const insightSourcesTooltipContent = () => (
+        <Column>
+            {props.insightSources.map((source, index) => (
+                <Link
+                    key={index}
+                    href={insightSourcesLinks[source]}
+                >
+                    {t(source)}
+                </Link>)
+            )}
+        </Column>
+    );
+
+
     return (
         <div className={props.page + ' layout browser'} style={{ 'display': 'none' }}>
 
@@ -181,11 +213,38 @@ const Layout = (props) => {
                                 }
                             </Row>
 
+                            {props.showInsight &&
+                                <Row fit='all'>
+                                    {aiIcon}
+
+                                    <Row>
+                                        <p>{t(props.insight)}</p>
+
+                                        {props.insightSources.length > 0 &&
+                                            <Popover
+                                                title={t('source.p')}
+                                                content={insightSourcesTooltipContent}
+                                                trigger="click"
+                                            >
+                                                {sourceIcon}
+                                            </Popover>
+                                        }
+                                    </Row>
+                                </Row>
+                            }
+
                             <Row
                                 className='header-section'
                                 j='end'
                             >
-                                <SwitchableIcon id="theme-switch-step"
+                                <SwitchableIcon id='show-values-switch'
+                                    onImage={showIcon}
+                                    offImage={hideIcon}
+                                    isOn={props.showValues}
+                                    onToggle={() => props.setShowValues(!props.showValues)}
+                                />
+
+                                <SwitchableIcon id='theme-switch'
                                     onImage={sunIcon}
                                     isOn={theme === 'dark'}
                                     offImage={moonIcon}
@@ -240,7 +299,7 @@ const Layout = (props) => {
             </div>
 
             {showVersion ? <p className='version'>v{version}</p> : <></>}
-        </div>
+        </div >
     );
 };
 
@@ -259,6 +318,11 @@ Layout.propTypes = {
     showToolbar: PropTypes.bool,
     showTopLogo: PropTypes.bool,
     showVersion: PropTypes.bool,
+    showInsight: PropTypes.bool,
+    insight: PropTypes.string,
+    insightSources: PropTypes.array,
+    showValues: PropTypes.bool,
+    setShowValues: PropTypes.func
 };
 
 

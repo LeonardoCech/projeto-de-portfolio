@@ -13,11 +13,8 @@ import {
     Loading, Link,
     MessagePopup, SwitchableIcon
 } from 'components/imports';
-import { ConfirmSvg, LoadingSvg, PencilSvg, UserDefaultPic128Png } from 'icons/imports';
-import {
-    qrCodesMeGet,
-    usersMeGet, usersMePatch
-} from 'apis/imports';
+import { ConfirmSvg, LoadingSvg, PencilSvg } from 'icons/imports';
+import { qrCodesMeGet, usersMeGet, usersMePatch, usersMeDelete } from 'apis/imports';
 
 import { Button, Column, Layout, Page, Row } from 'components/imports';
 import { Input, Panel, Title } from 'components/imports';
@@ -26,6 +23,7 @@ import { getLanguage, getTheme } from 'utils/cookies';
 import { abbreviateText } from 'utils/general';
 
 import './Settings.css';
+import { Cookies } from 'react-cookie';
 
 
 const Settings = () => {
@@ -62,6 +60,8 @@ const Settings = () => {
     const [isLoadingPage, setIsLoadingPage] = useState(true);
     const [isPatchingUser, setIsPatchingUser] = useState(false);
     const [showMfaQrCodeButtonState, setShowMfaQrCodeButtonState] = useState('enabled');
+
+    const [isDeletingUser, setIsDeletingUser] = useState(false);
 
 
     useEffect(() => {
@@ -274,6 +274,7 @@ const Settings = () => {
                 showToolbar={true}
                 dialogConfirm={false}
                 maximizedScreen={false}
+                showInsight={false}
             >
                 {isLoadingPage
                     ? <Loading id={'settings-overlay'} />
@@ -348,6 +349,28 @@ const Settings = () => {
                                                 <p className='label'><b>{t('username.s')}</b></p>
                                                 <p className='email-text' title={username}>{username}</p>
                                             </Column>
+
+                                            <hr />
+
+                                            <Button id='delete-account-button'
+                                                variation='secondary'
+                                                state={isDeletingUser ? 'loading' : 'enabled'}
+                                                onClick={async () => {
+                                                    const result = confirm(t('ask-confirm-remove-user'));
+                                                    if (result) {
+                                                        setIsDeletingUser(true);
+                                                        const { isSuccess } = await usersMeDelete();
+
+                                                        if (isSuccess) {
+
+                                                            sessionStorage.clear();
+                                                            localStorage.clear();
+
+                                                            navigate('/sign-in');
+                                                        }
+                                                    }
+                                                }}
+                                            >{t('delete-user-account')}</Button>
                                         </Column>
                                     </Panel>
                                 </Column>
@@ -391,7 +414,6 @@ const Settings = () => {
                                                     navigate('/reset-password');
                                             }}
                                         >{t('password.change')}</Button>
-
                                     </Panel>
                                 </Column>
                             </Row>

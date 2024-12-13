@@ -11,8 +11,6 @@ import Toolbar from 'components/shared/toolbar/Toolbar'; export { Toolbar };
 import MessagePopup from 'components/utils/messagePopup/MessagePopup'; export { MessagePopup };
 import PageLink from 'components/utils/headerElements/pageLink/PageLink'; export { PageLink };
 import SwitchableIcon from 'components/utils/iconButtons/switchableIcon/SwitchableIcon'; export { SwitchableIcon };
-import TableTransfer from 'components/shared/transfer/TableTransfer'; export { TableTransfer };
-
 
 // Shared Page Components -------------------------------------------
 
