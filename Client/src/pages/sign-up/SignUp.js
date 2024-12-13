@@ -909,7 +909,7 @@ const SignUp = () => {
                                                         onClick={() => handleSubmit()}
                                                         state={signupButtonState}
                                                         type='submit'
-                                                    >{t('Create Account')}</Button>
+                                                    >{t('sign.up.i')}</Button>
                                                 </Column>
                                                 : null
                                             }
